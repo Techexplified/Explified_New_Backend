@@ -18,7 +18,7 @@ const app = express();
 //MIDDLEWARES
 app.use(
   cors({
-    origin: "*",
+    origin: ["https://app.explified.com/"],
     credentials: true,
   })
 );
@@ -39,8 +39,8 @@ app.get("/firebase-status", async (req, res) => {
   }
 });
 
-exports.api = functions.https.onRequest(app);
+// exports.api = functions.https.onRequest(app);
 
-// app.listen(port, () => {
-//   console.log(`Server running on port ${port}...`);
-// });
+app.listen(port, () => {
+  console.log(`Server running on port ${port}...`);
+});
