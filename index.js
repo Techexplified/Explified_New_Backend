@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const functions = require("firebase-functions");
 const db = require("./src/config/db");
 const userRouter = require("./src/routes/userRoute");
 
@@ -38,6 +39,8 @@ app.get("/firebase-status", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}...`);
-});
+exports.api = functions.https.onRequest(app);
+
+// app.listen(port, () => {
+//   console.log(`Server running on port ${port}...`);
+// });
