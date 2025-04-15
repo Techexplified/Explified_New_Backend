@@ -55,87 +55,87 @@ exports.signup = async (req, res) => {
   }
 };
 
-// exports.login = async (req, res) => {
-//   const { email, password } = req.body;
+exports.login = async (req, res) => {
+  const { email, password } = req.body;
 
-//   try {
-//     // Find user by email
-//     const userQuery = await db
-//       .collection("users")
-//       .where("email", "==", email)
-//       .get();
-//     if (userQuery.empty) {
-//       return res.status(404).json({ message: "User not found" });
-//     }
-
-//     const userDoc = userQuery.docs[0];
-//     const userData = userDoc.data();
-
-//     console.log(userData);
-
-//     // Compare password
-//     const isMatch = await bcrypt.compare(password, userData.password);
-//     if (!isMatch) {
-//       return res.status(401).json({ message: "Invalid credentials" });
-//     }
-
-//     //Generate the token
-//     generateAndSendToken(res, userDoc.id);
-
-//     res.status(200).json({
-//       message: "Login successful",
-//       user: {
-//         id: userDoc.id,
-//         firstName: userData.firstName,
-//         lastName: userData.lastName,
-//         email: userData.email,
-//       },
-//     });
-//   } catch (error) {
-//     res.status(500).json({ message: "Login failed", error: error.message });
-//   }
-// };
-
-exports.login = functions.https.onRequest((req, res) => {
-  cors(req, res, async () => {
-    const { email, password } = req.body;
-
-    try {
-      // Find user by email
-      const userQuery = await db
-        .collection("users")
-        .where("email", "==", email)
-        .get();
-      if (userQuery.empty) {
-        return res.status(404).json({ message: "User not found" });
-      }
-
-      const userDoc = userQuery.docs[0];
-      const userData = userDoc.data();
-
-      // Compare password
-      const isMatch = await bcrypt.compare(password, userData.password);
-      if (!isMatch) {
-        return res.status(401).json({ message: "Invalid credentials" });
-      }
-
-      //Generate the token
-      generateAndSendToken(res, userDoc.id);
-
-      res.status(200).json({
-        message: "Login successful",
-        user: {
-          id: userDoc.id,
-          firstName: userData.firstName,
-          lastName: userData.lastName,
-          email: userData.email,
-        },
-      });
-    } catch (error) {
-      res.status(500).json({ message: "Login failed", error: error.message });
+  try {
+    // Find user by email
+    const userQuery = await db
+      .collection("users")
+      .where("email", "==", email)
+      .get();
+    if (userQuery.empty) {
+      return res.status(404).json({ message: "User not found" });
     }
-  });
-});
+
+    const userDoc = userQuery.docs[0];
+    const userData = userDoc.data();
+
+    console.log(userData);
+
+    // Compare password
+    const isMatch = await bcrypt.compare(password, userData.password);
+    if (!isMatch) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    //Generate the token
+    generateAndSendToken(res, userDoc.id);
+
+    res.status(200).json({
+      message: "Login successful",
+      user: {
+        id: userDoc.id,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        email: userData.email,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Login failed", error: error.message });
+  }
+};
+
+// exports.login = functions.https.onRequest((req, res) => {
+//   cors(req, res, async () => {
+//     const { email, password } = req.body;
+
+//     try {
+//       // Find user by email
+//       const userQuery = await db
+//         .collection("users")
+//         .where("email", "==", email)
+//         .get();
+//       if (userQuery.empty) {
+//         return res.status(404).json({ message: "User not found" });
+//       }
+
+//       const userDoc = userQuery.docs[0];
+//       const userData = userDoc.data();
+
+//       // Compare password
+//       const isMatch = await bcrypt.compare(password, userData.password);
+//       if (!isMatch) {
+//         return res.status(401).json({ message: "Invalid credentials" });
+//       }
+
+//       //Generate the token
+//       generateAndSendToken(res, userDoc.id);
+
+//       res.status(200).json({
+//         message: "Login successful",
+//         user: {
+//           id: userDoc.id,
+//           firstName: userData.firstName,
+//           lastName: userData.lastName,
+//           email: userData.email,
+//         },
+//       });
+//     } catch (error) {
+//       res.status(500).json({ message: "Login failed", error: error.message });
+//     }
+//   });
+// });
 
 exports.logOut = (req, res) => {
   res.cookie("explified", "", { maxAge: 0 });
