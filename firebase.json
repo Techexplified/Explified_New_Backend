@@ -12,6 +12,7 @@
     "rewrites": [
       {
         "source": "/api/**",
+        "dynamicLinks": true,
         "function": "api"
       },
       {
