@@ -21,7 +21,7 @@
     ]
   },
   "functions": {
-    "source": "src"
+    "source": "functions"
   },
   "storage": {
     "rules": "storage.rules"
