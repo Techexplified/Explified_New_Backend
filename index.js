@@ -2,21 +2,24 @@ const dotenv = require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const userRouter = require("./src/routes/userRoute");
+const userRouter = require("./functions/routes/userRoute");
 
 const port = process.env.PORT || 3000;
 const app = express();
 
-// origin: "https://localhost:5173",
-const corsOptions = {
-  origin: "*",
-  methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: "http://localhost:5173",
+//   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+//   credentials: true,
+// };
 
 //MIDDLEWARES
-app.use(cors(corsOptions));
-// app.options("*", cors(corsOptions));
+app.use(
+  cors({
+    origin: ["https://app.explified.com/"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 
@@ -37,6 +40,8 @@ app.get("/firebase-status", async (req, res) => {
       });
   }
 });
+
+// exports.api = functions.https.onRequest(app);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}...`);
