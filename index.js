@@ -16,7 +16,7 @@ const app = express();
 //MIDDLEWARES
 app.use(
   cors({
-    origin: ["https://explified-home.web.app/", "http://localhost:5173"],
+    origin: "*",
     credentials: true,
   })
 );
