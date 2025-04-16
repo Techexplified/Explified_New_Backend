@@ -19,6 +19,8 @@ functions/controllers/userController.js
 
 # GITHUB PULL
 
+git pull origin "master"
+
 # GITHUB PUSH
 
 git add .
@@ -27,6 +29,9 @@ git push origin "Branchname"
 
 # FIREBASE SETUP
 
+firebase init
+
 # DEPLOY
 
+npm run build
 firebase deploy
