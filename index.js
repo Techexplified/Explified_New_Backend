@@ -2,13 +2,14 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const functions = require("firebase-functions");
 const userRouter = require("./functions/routes/userRoute");
 
 const port = process.env.PORT || 3000;
 const app = express();
 
 // const corsOptions = {
-//   origin: "http://localhost:5173",
+//   origin: ["https://explified-home.web.app/", "http://localhost:5173"],
 //   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
 //   credentials: true,
 // };
@@ -16,10 +17,12 @@ const app = express();
 //MIDDLEWARES
 app.use(
   cors({
-    origin: "*",
+    origin: "https://explified-home.web.app",
+    methods: ["GET", "POST", "PATCH", "PUT", "DELETE"], // Allow PATCH method
     credentials: true,
   })
 );
+app.options("*", cors());
 app.use(express.json());
 app.use(cookieParser());
 
