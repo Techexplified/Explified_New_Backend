@@ -1,6 +1,6 @@
 This is the backend of the **Explified App**, built using **Firebase Cloud Functions** with **Express.js**. It includes user authentication with JWT, secure cookies, Firestore as the database, and CORS support.
 
-# FOLDER STRUCTURE
+### FOLDER STRUCTURE
 
 explified-app/
 ├── public/
@@ -11,13 +11,13 @@ explified-app/
 ├── firebase.json
 ├── .firebaserc
 
-# AUTHENTICATION
+### AUTHENTICATION
 
 functions/models/userModel.js
 functions/routes/userRoute.js
 functions/controllers/userController.js
 
-# GITHUB PULL
+### GITHUB PULL
 
 git pull origin "master"
 
@@ -27,11 +27,11 @@ git add .
 git commit -m "your message"
 git push origin "Branchname"
 
-# FIREBASE SETUP
+### FIREBASE SETUP
 
 firebase init
 
-# DEPLOY
+### DEPLOY
 
 npm run build
 firebase deploy
