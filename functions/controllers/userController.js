@@ -55,6 +55,8 @@ exports.signup = async (req, res) => {
   }
 };
 
+// or specify your origin
+
 exports.login = async (req, res) => {
   const { email, password } = req.body;
 
