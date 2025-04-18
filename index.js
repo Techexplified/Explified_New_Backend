@@ -41,7 +41,7 @@ app.get("/firebase-status", async (req, res) => {
   }
 });
 
-// exports.api = functions.https.onRequest(app);
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}...`);
