@@ -4,9 +4,9 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const { onRequest } = require("firebase-functions/v2/https"); // changes done here
 const userRouter = require("./routes/userRoute");
+const textToVideoRouter = require("./routes/textToVideoRoutes");
 
 const app = express();
-
 
 app.use(
   cors({
@@ -22,6 +22,7 @@ app.use(cookieParser());
 
 // Routes
 app.use("/api/users", userRouter);
+app.use("/api/textToVideos", textToVideoRouter);
 
 app.get("/firebase-status", async (req, res) => {
   try {
@@ -33,7 +34,6 @@ app.get("/firebase-status", async (req, res) => {
     });
   }
 });
-
 
 // ✅ Firebase entry point
 exports.api = onRequest(app);
