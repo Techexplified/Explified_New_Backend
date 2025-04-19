@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://explified-home.web.app" , "https://app.explified.com"],
+    origin: "https://explified-home.web.app",
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     credentials: true,
   })
