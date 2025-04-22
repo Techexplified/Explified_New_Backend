@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { db } = require("../config/db");
+const { db, auth } = require("../config/db");
 const User = require("../models/userModel");
 const functions = require("firebase-functions");
 const cors = require("cors")({ origin: true });
@@ -15,6 +15,7 @@ const generateAndSendToken = (res, id) => {
     sameSite: "strict",
     secure: process.env.NODE_ENV !== "development",
   });
+  console.log(token);
 };
 
 exports.signup = async (req, res) => {
@@ -146,3 +147,49 @@ exports.logOut = (req, res) => {
     message: "Logged out successfully",
   });
 };
+
+
+// api for google-auth
+exports.googleAuth = async (req, res) => {
+  try {
+    const authHeader = req.headers.authorization;
+
+    // if token not provided
+    if (!authHeader) return res.status(401).json({
+      status: false,
+      error: "No token provided"
+    });
+
+    const idToken = authHeader.split("Bearer ")[1];
+
+
+    //Verify the ID token
+    const decodedToken = await auth.verifyIdToken(idToken);
+    // console.log(decodedToken);
+    const uid = decodedToken.uid;
+    const email = decodedToken.email;
+    const name = decodedToken.name;
+    const arr = name.split(' ');
+    let firstName = arr[0];
+    let lastName = "";
+    for (let i = 1; i < arr.length; i++)lastName += arr[i];
+
+    //Store or update user in Firestore
+    const newUser = new User(firstName, lastName, email, null); //contains all fields as properties except the ID
+    const newDoc = await db.collection("users").add({ ...newUser }); //contains only ID
+
+    generateAndSendToken(res, uid);
+
+    // Respond with user info
+    res.status(200).json({
+      status: true,
+      data:decodedToken
+    })
+  } catch (error) {
+    console.error("Auth error:", error);
+    res.status(500).json({
+      status: false,
+      error: "Authentication failed"
+    });
+  }
+}

@@ -10,7 +10,8 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://explified-home.web.app",
+    // origin: "https://explified-home.web.app",
+    origin:'http://localhost:5173',
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     credentials: true,
   })
@@ -22,6 +23,7 @@ app.use(cookieParser());
 
 // Routes
 app.use("/api/users", userRouter);
+app.use("/api/imageToCartoon",convertImageToCartoon);
 
 app.get("/firebase-status", async (req, res) => {
   try {
