@@ -5,6 +5,8 @@ const cookieParser = require("cookie-parser");
 const { onRequest } = require("firebase-functions/v2/https"); // changes done here
 const userRouter = require("./routes/userRoute");
 const textToVideoRouter = require("./routes/textToVideoRoutes");
+const imageCartoonizerRouter = require("./routes/imageCartoonizerRoutes");
+const textToImageRouter = require("./routes/textToImageRoutes");
 
 const app = express();
 
@@ -23,6 +25,8 @@ app.use(cookieParser());
 // Routes
 app.use("/api/users", userRouter);
 app.use("/api/textToVideos", textToVideoRouter);
+app.use("/api/textToImage", textToImageRouter);
+app.use("/api/imageCartoonizer", imageCartoonizerRouter);
 
 app.get("/firebase-status", async (req, res) => {
   try {
