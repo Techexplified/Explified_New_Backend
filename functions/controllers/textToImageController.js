@@ -32,12 +32,12 @@ exports.createTextToImage = async (req, res) => {
 
     //prepare request object (if you are going to send a file please use form data)
     let requestObject = {
-      selectedModel: "",
+      selectedModel: "664",
       selectedModelPrivate: "",
-      selectedLoraModel: [],
+      selectedLoraModel: "853",
       selectedLoraModelPrivate: [],
       selectedLoraModelPrivateUrl: "",
-      prompt: prompt,
+      prompt: `<lora:Modern-Cartoon:1.0>, ${prompt}`,
       steps: "25",
       scale: "3.5",
       samples: "1",
@@ -69,7 +69,7 @@ exports.createTextToImage = async (req, res) => {
 
     const imageData = response2?.data?.tasklist[0]?.parameters?.inputImage;
     console.log(response2?.data);
-    console.log("b", response2?.data?.tasklist[0]);
+    console.log("b", response2?.data?.tasklist[0].outputs);
     console.log(imageData);
 
     res.status(201).json({
@@ -78,7 +78,6 @@ exports.createTextToImage = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-
     res
       .status(500)
       .json({ message: "Video creation failed", error: err.message });
