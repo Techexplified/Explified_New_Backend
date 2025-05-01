@@ -20,23 +20,26 @@ exports.createCartoon = async (req, res) => {
 
     data.append("type", type);
 
-    const headers = {
-      ...data.getHeaders(),
-      "x-rapidapi-key": process.env.RAPID_API_KEY,
-      "x-rapidapi-host": "cartoon-yourself.p.rapidapi.com",
-    };
+    // const headers = {
+    //   ...data.getHeaders(),
+    //   "x-rapidapi-key": process.env.RAPID_API_KEY,
+    //   "x-rapidapi-host": "cartoon-yourself.p.rapidapi.com",
+    // };
 
-    const response = await axios.post(
-      "https://cartoon-yourself.p.rapidapi.com/facebody/api/portrait-animation/portrait-animation",
-      data,
-      { headers }
-    );
+    // const response = await axios.post(
+    //   "https://cartoon-yourself.p.rapidapi.com/facebody/api/portrait-animation/portrait-animation",
+    //   data,
+    //   { headers }
+    // );
 
-    const cartoonImage = response?.data?.data?.image_url || "";
+    // const cartoonImage = response?.data?.data?.image_url || "";
 
     res.status(201).json({
       message: "Image cartoonized successfully",
-      data: cartoonImage,
+      data: {
+        file: file,
+        data: data,
+      },
     });
   } catch (err) {
     console.error(err);
