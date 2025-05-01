@@ -1,6 +1,5 @@
 const axios = require("axios");
 const FormData = require("form-data");
-const { Readable } = require("stream");
 
 exports.createCartoon = async (req, res) => {
   try {
@@ -13,11 +12,10 @@ exports.createCartoon = async (req, res) => {
 
     const data = new FormData();
 
-    // Convert buffer to stream and append to form-data
-    const stream = Readable.from(file.buffer);
-    data.append("image", stream, {
-      filename: file.originalname,
-      contentType: file.mimetype,
+    // 🔧 Append the buffer directly
+    data.append("image", file.buffer, {
+      filename: file.originalname || "image.jpg",
+      contentType: file.mimetype || "image/jpeg",
     });
 
     data.append("type", type);
@@ -43,9 +41,8 @@ exports.createCartoon = async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({
-      status: "error",
-      statusCode: 500,
-      message: err.message || "Something went wrong",
+      message: err.message || "Unexpected server error",
+      error: err,
     });
   }
 };
