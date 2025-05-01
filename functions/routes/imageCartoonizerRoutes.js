@@ -2,7 +2,8 @@ const express = require("express");
 const { createCartoon } = require("../controllers/imageCartoonizerController");
 
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 const router = express.Router();
 
