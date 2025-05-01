@@ -6,6 +6,6 @@ const upload = multer({ dest: "uploads/" });
 
 const router = express.Router();
 
-router.post("/", upload.single("image"), createCartoon);
+router.post("/", createCartoon);
 
 module.exports = router;
