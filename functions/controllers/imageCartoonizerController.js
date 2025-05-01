@@ -40,7 +40,7 @@ exports.createCartoon = async (req, res) => {
     // const docRef = await collection.add({ ...newEntry });
     res.status(201).json({
       message: "Image cartoonized successfully",
-      data: { file, type },
+      data: file,
       // id: docRef.id,
       // ...newEntry,
     });
