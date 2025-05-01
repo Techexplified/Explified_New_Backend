@@ -7,6 +7,7 @@ const userRouter = require("./functions/routes/userRoute");
 const textToVideoRouter = require("./functions/routes/textToVideoRoutes");
 const imageCartoonizerRouter = require("./functions/routes/imageCartoonizerRoutes");
 const textToImageRouter = require("./functions/routes/textToImageRoutes");
+const globalErrorHandler = require("./functions/controllers/errorController");
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -38,6 +39,12 @@ app.get("/firebase-status", async (req, res) => {
       .json({ message: "Firebase connection failed!", error: error.message });
   }
 });
+
+app.all("*", (req, res, next) => {
+  next(new Error(`This route ${req.originalUrl} doesn't exist.`));
+});
+
+app.use(globalErrorHandler);
 
 // exports.api = functions.https.onRequest(app);
 

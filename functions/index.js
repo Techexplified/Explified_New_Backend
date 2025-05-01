@@ -7,6 +7,8 @@ const userRouter = require("./routes/userRoute");
 const textToVideoRouter = require("./routes/textToVideoRoutes");
 const imageCartoonizerRouter = require("./routes/imageCartoonizerRoutes");
 const textToImageRouter = require("./routes/textToImageRoutes");
+const { error } = require("firebase-functions/logger");
+const globalErrorHandler = require("./controllers/errorController");
 
 const app = express();
 
@@ -38,6 +40,12 @@ app.get("/firebase-status", async (req, res) => {
     });
   }
 });
+
+app.all("*", (req, res, next) => {
+  next(new Error(`This route ${req.originalUrl} doesn't exist.`));
+});
+
+app.use(globalErrorHandler);
 
 // ✅ Firebase entry point
 exports.api = onRequest(app);
