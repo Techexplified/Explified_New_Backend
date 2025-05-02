@@ -23,7 +23,6 @@ exports.createCartoon = async (req, res) => {
     // data.append("image", fs.createReadStream(file.path));
     data.append("type", type);
     const options = {
-      // origin: "https://explified-home.web.app",
       method: "POST",
       url: "https://cartoon-yourself.p.rapidapi.com/facebody/api/portrait-animation/portrait-animation",
       headers: {

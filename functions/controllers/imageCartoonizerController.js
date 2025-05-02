@@ -1,31 +1,39 @@
 const axios = require("axios");
+const FormData = require("form-data");
 
 exports.createCartoon = async (req, res) => {
   try {
-    const { image, type } = req.body;
+    // req.file comes from multer middleware
+    const file = req.file;
+    const type = req.body.type;
 
-    if (!image || !type) {
-      return res
-        .status(400)
-        .json({ message: "base64Image and type are required" });
+    if (!file || !type) {
+      return res.status(400).json({
+        message: "Image file and type are required",
+      });
     }
 
-    const encodedParams = new URLSearchParams();
-    encodedParams.append("image", image);
-    encodedParams.append("type", type);
+    // Create FormData for the RapidAPI request
+    const form = new FormData();
+    form.append("image", file.buffer, {
+      filename: file.originalname,
+      contentType: file.mimetype,
+    });
+    form.append("type", type);
 
-    const options = {
-      method: "POST",
-      url: "https://cartoon-yourself.p.rapidapi.com/facebody/api/portrait-animation/portrait-animation",
-      headers: {
-        "x-rapidapi-key": "a5a377b732msh8e36ae5b233ad40p11e12ejsn844dbae5f2cc",
-        "x-rapidapi-host": "cartoon-yourself.p.rapidapi.com",
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      data: encodedParams,
-    };
+    const response = await axios.post(
+      "https://cartoon-yourself.p.rapidapi.com/facebody/api/portrait-animation/portrait-animation",
+      form,
+      {
+        headers: {
+          ...form.getHeaders(),
+          "x-rapidapi-key":
+            "a5a377b732msh8e36ae5b233ad40p11e12ejsn844dbae5f2cc",
+          "x-rapidapi-host": "cartoon-yourself.p.rapidapi.com",
+        },
+      }
+    );
 
-    const response = await axios.request(options);
     const cartoonImage = response?.data?.data?.image_url;
 
     res.status(201).json({
@@ -33,13 +41,10 @@ exports.createCartoon = async (req, res) => {
       data: cartoonImage,
     });
   } catch (err) {
-    console.error(
-      "Cartoonize Error:",
-      err?.response?.data || err.message || err
-    );
+    console.error("Cartoonize Error:", err?.response?.data || err.message);
     res.status(500).json({
       message: "Cartoonizing failed",
-      error: err?.response?.data || err.message || err,
+      error: err?.response?.data || err.message,
     });
   }
 };
