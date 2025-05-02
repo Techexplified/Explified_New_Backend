@@ -5,6 +5,6 @@ const { createCartoon } = require("../controllers/imageCartoonizerController");
 const router = express.Router();
 const upload = multer();
 
-router.post("/cartoonize", upload.single("image"), createCartoon);
+router.post("/cartoonize", upload.any(), createCartoon);
 
 module.exports = router;

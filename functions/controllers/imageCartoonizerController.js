@@ -4,7 +4,7 @@ const FormData = require("form-data");
 exports.createCartoon = async (req, res) => {
   try {
     // req.file comes from multer middleware
-    const file = req.file;
+    const file = req.files?.[0];
     const type = req.body.type;
 
     if (!file || !type) {
