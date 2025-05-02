@@ -18,7 +18,7 @@ exports.createCartoon = async (req, res) => {
       method: "POST",
       url: "https://cartoon-yourself.p.rapidapi.com/facebody/api/portrait-animation/portrait-animation",
       headers: {
-        "x-rapidapi-key": process.env.RAPID_API_KEY,
+        "x-rapidapi-key": "a5a377b732msh8e36ae5b233ad40p11e12ejsn844dbae5f2cc",
         "x-rapidapi-host": "cartoon-yourself.p.rapidapi.com",
         "Content-Type": "application/x-www-form-urlencoded",
       },
