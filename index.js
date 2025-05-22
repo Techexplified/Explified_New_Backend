@@ -8,14 +8,20 @@ const textToVideoRouter = require("./functions/routes/textToVideoRoutes");
 const imageCartoonizerRouter = require("./functions/routes/imageCartoonizerRoutes");
 const textToImageRouter = require("./functions/routes/textToImageRoutes");
 const globalErrorHandler = require("./functions/controllers/errorController");
+const bgRemoverRouter = require("./functions/routes/bgRemoverRoutes");
+const ytSummarizerRouter = require("./functions/routes/ytSummarizerRoutes");
 
 const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(
   cors({
-    origin: ["https://explified-home.web.app", "http://localhost:5173"],
-    methods: ["GET", "POST", "PATCH", "PUT", "DELETE"], // Allow PATCH method
+    origin: [
+      "https://www.youtube.com",
+      "https://explified-home.web.app",
+      "http://localhost:5173",
+    ],
+    methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"], // Allow PATCH method
     credentials: true,
   })
 );
@@ -28,6 +34,8 @@ app.use("/api/users", userRouter);
 app.use("/api/textToVideos", textToVideoRouter);
 app.use("/api/textToImage", textToImageRouter);
 app.use("/api/imageCartoonizer", imageCartoonizerRouter);
+app.use("/api/bgRemover", bgRemoverRouter);
+app.use("/api/ytSummarize", ytSummarizerRouter);
 
 app.get("/firebase-status", async (req, res) => {
   try {
