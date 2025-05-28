@@ -10,6 +10,7 @@ const textToImageRouter = require("./routes/textToImageRoutes");
 const { error } = require("firebase-functions/logger");
 const globalErrorHandler = require("./controllers/errorController");
 const bgRemoverRouter = require("./routes/bgRemoverRoutes");
+const ytSummarizerRouter = require("./routes/ytSummarizerRoutes");
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use("/api/textToVideos", textToVideoRouter);
 app.use("/api/textToImage", textToImageRouter);
 app.use("/api/imageCartoonizer", imageCartoonizerRouter);
 app.use("/api/bgRemover", bgRemoverRouter);
+app.use("/api/ytSummarize", ytSummarizerRouter);
 
 app.get("/firebase-status", async (req, res) => {
   try {
