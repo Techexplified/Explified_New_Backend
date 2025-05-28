@@ -1,9 +1,13 @@
 const express = require("express");
 
-const { youtubeSummary } = require("../controllers/ytSummarizerController");
+const {
+  youtubeSummary,
+  youtubeTranscript,
+} = require("../controllers/ytSummarizerController");
 
 const router = express.Router();
 
-router.post("/", youtubeSummary);
+router.post("/transcript", youtubeTranscript);
+router.post("/summary", youtubeSummary);
 
 module.exports = router;
