@@ -11,9 +11,26 @@ const youtubeTranscript = async (req, res, next) => {
       .trim()
       .replace(/[^a-zA-Z0-9_-]/g, "");
 
+    const options = {
+      method: "GET",
+      url: "https://youtube-transcript3.p.rapidapi.com/api/transcript",
+      params: {
+        videoId: cleanVideoId,
+      },
+      headers: {
+        "x-rapidapi-key": "5c43358bb7msh620384fe8a16560p1a0fd1jsn853ee75f7459",
+        "x-rapidapi-host": "youtube-transcript3.p.rapidapi.com",
+      },
+    };
+
     // transcript generation using YoutubeTranscript npm package
-    const transcript = await YoutubeTranscript.fetchTranscript(cleanVideoId);
-    // const paragraph = transcript.map((item) => item.text).join(" ");
+    const response = await axios.request(options);
+    console.log(response.data.transcript);
+    const transcript = response.data.transcript;
+
+    // console.log(transcript);
+
+    const paragraph = transcript.map((item) => item.text).join(" ");
 
     function groupTranscriptBySentences(transcript, sentencesPerGroup = 6) {
       const grouped = [];
@@ -28,6 +45,8 @@ const youtubeTranscript = async (req, res, next) => {
 
     const result = groupTranscriptBySentences(transcript, 6);
 
+    console.log(result);
+
     res.status(201).json({
       message: "Summary generated successfully",
       content: result,
@@ -40,6 +59,49 @@ const youtubeTranscript = async (req, res, next) => {
     throw error;
   }
 };
+// const youtubeTranscript = async (req, res, next) => {
+//   try {
+//     const { videoId } = req.body;
+
+//     const cleanVideoId = String(videoId)
+//       .trim()
+//       .replace(/[^a-zA-Z0-9_-]/g, "");
+
+//     // transcript generation using YoutubeTranscript npm package
+//     const transcript = await YoutubeTranscript.fetchTranscript("M7FIvfx5J10");
+//     console.log(cleanVideoId);
+
+//     console.log(transcript);
+
+//     // const paragraph = transcript.map((item) => item.text).join(" ");
+
+//     function groupTranscriptBySentences(transcript, sentencesPerGroup = 6) {
+//       const grouped = [];
+//       for (let i = 0; i < transcript.length; i += sentencesPerGroup) {
+//         const chunk = transcript.slice(i, i + sentencesPerGroup);
+//         const timestamp = chunk[0].offset;
+//         const text = chunk.map((entry) => entry.text).join(" ");
+//         grouped.push({ timestamp, text });
+//       }
+//       return grouped;
+//     }
+
+//     const result = groupTranscriptBySentences(transcript, 6);
+
+//     console.log(result);
+
+//     res.status(201).json({
+//       message: "Summary generated successfully",
+//       content: result,
+//     });
+//   } catch (error) {
+//     console.error(
+//       "Error:",
+//       error.response ? error.response.data : error.message
+//     );
+//     throw error;
+//   }
+// };
 
 const youtubeSummary = async (req, res, next) => {
   try {
