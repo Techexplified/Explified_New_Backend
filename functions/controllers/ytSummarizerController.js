@@ -3,6 +3,11 @@ const { YoutubeTranscript } = require("youtube-transcript");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { db } = require("../config/db");
 
+const formatTime = (seconds) => {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins}:${secs.toString().padStart(2, "0")}`;
+};
 const youtubeTranscript = async (req, res, next) => {
   try {
     const { videoId } = req.body;
@@ -111,20 +116,67 @@ const youtubeSummary = async (req, res, next) => {
       .trim()
       .replace(/[^a-zA-Z0-9_-]/g, "");
 
-    // transcript generation using YoutubeTranscript npm package
-    const transcript = await YoutubeTranscript.fetchTranscript(cleanVideoId);
-    const paragraph = transcript.map((item) => item.text).join(" ");
+    const options = {
+      method: "GET",
+      url: "https://youtube-transcript3.p.rapidapi.com/api/transcript",
+      params: {
+        videoId: cleanVideoId,
+      },
+      headers: {
+        "x-rapidapi-key": "5c43358bb7msh620384fe8a16560p1a0fd1jsn853ee75f7459",
+        "x-rapidapi-host": "youtube-transcript3.p.rapidapi.com",
+      },
+    };
 
-    // summary generation using GEMINI 2.0 flash
+    // transcript generation using YoutubeTranscript npm package
+    const response = await axios.request(options);
+    console.log(response.data.transcript);
+    const transcript = response.data.transcript;
+
+    function groupTranscriptBySentences(transcript, sentencesPerGroup = 6) {
+      const grouped = [];
+      for (let i = 0; i < transcript.length; i += sentencesPerGroup) {
+        const chunk = transcript.slice(i, i + sentencesPerGroup);
+        const timestamp = chunk[0].offset;
+        const text = chunk.map((entry) => entry.text).join(" ");
+        grouped.push({ timestamp, text });
+      }
+      return grouped;
+    }
+
+    const result = groupTranscriptBySentences(transcript, 6);
+
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-    const prompt = `Generate a summary of this text - ${paragraph}`;
-    const result = await model.generateContent(prompt);
-    const summary = result.response.text();
+
+    // Step 3: Chunk transcript (every 4 items for now)
+    const chunkSize = 50;
+    const summaries = [];
+
+    for (let i = 0; i < result.length; i += chunkSize) {
+      const chunk = result.slice(i, i + chunkSize);
+      const startTime = formatTime(chunk[0]?.timestamp || 0);
+      const endTime = formatTime(chunk[chunk.length - 1]?.timestamp || 0);
+      const combinedText = chunk.map((item) => item.text).join(" ");
+
+      const prompt = `
+You're an AI assistant. Summarize the following content spoken between timestamps ${startTime} and ${endTime}.
+
+TEXT:
+${combinedText}
+
+Return a short and clear summary.
+      `;
+
+      const response2 = await model.generateContent(prompt);
+      const summary = response2.response.text();
+      summaries.push({ timeRange: `${startTime} - ${endTime}`, summary });
+    }
+    console.log(summaries);
 
     res.status(201).json({
       message: "Summary generated successfully",
-      content: summary,
+      content: summaries,
     });
   } catch (error) {
     console.error(
@@ -134,6 +186,37 @@ const youtubeSummary = async (req, res, next) => {
     throw error;
   }
 };
+// const youtubeSummary = async (req, res, next) => {
+//   try {
+//     const { videoId } = req.body;
+
+//     const cleanVideoId = String(videoId)
+//       .trim()
+//       .replace(/[^a-zA-Z0-9_-]/g, "");
+
+//     // transcript generation using YoutubeTranscript npm package
+//     const transcript = await YoutubeTranscript.fetchTranscript(cleanVideoId);
+//     const paragraph = transcript.map((item) => item.text).join(" ");
+
+//     // summary generation using GEMINI 2.0 flash
+//     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+//     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+//     const prompt = `Generate a summary of this text - ${paragraph}`;
+//     const result = await model.generateContent(prompt);
+//     const summary = result.response.text();
+
+//     res.status(201).json({
+//       message: "Summary generated successfully",
+//       content: summary,
+//     });
+//   } catch (error) {
+//     console.error(
+//       "Error:",
+//       error.response ? error.response.data : error.message
+//     );
+//     throw error;
+//   }
+// };
 
 module.exports = { youtubeSummary, youtubeTranscript };
 
