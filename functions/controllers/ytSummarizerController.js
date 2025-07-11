@@ -87,7 +87,7 @@ const youtubeSummary = async (req, res, next) => {
 
     // transcript generation using YoutubeTranscript npm package
     const response = await axios.request(options);
-    console.log(response.data.transcript);
+
     const transcript = response.data.transcript;
 
     function groupTranscriptBySentences(transcript, sentencesPerGroup = 6) {
@@ -249,10 +249,89 @@ const languageChange = async (req, res) => {
     res.status(500).json({ error: "Translation failed" });
   }
 };
+const deepSearch = async (req, res) => {
+  try {
+    const { videoId } = req.body;
+
+    const cleanVideoId = String(videoId)
+      .trim()
+      .replace(/[^a-zA-Z0-9_-]/g, "");
+
+    const options = {
+      method: "GET",
+      url: "https://youtube-transcript3.p.rapidapi.com/api/transcript",
+      params: {
+        videoId: cleanVideoId,
+      },
+      headers: {
+        "x-rapidapi-key": process.env.RAPID_API_KEY_SARITA,
+        "x-rapidapi-host": "youtube-transcript3.p.rapidapi.com",
+      },
+    };
+
+    const response = await axios.request(options);
+
+    const transcript = response.data.transcript;
+    const paragraph = transcript.map((t) => t.text).join(" ");
+
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+
+    // const prompt1 = `Generate a overview of this text - ${paragraph}. Don't include the star symbols in the text. Just plain text.`;
+    // const result1 = await model.generateContent(prompt1);
+    // const summary = result1.response.text();
+
+    // const prompt2 = `${paragraph} Give 3-5 insights on this topic with links of websites from which you took reference. If possible generate the insights in array format rather that in text format. In that array of objects keep 3 keys like insight, details and reference. The reference field should contain the link of websites related to that topic.The insight field should be of 3 lines and the details field should be of 10 lines.`;
+    // const result2 = await model.generateContent(prompt2);
+    // const insights = result2.response.text();
+
+    const prompt1 = `Generate an overview of this text - ${paragraph}. Don't include the star symbols in the text. Just plain text.`;
+    const prompt2 = `${paragraph} Give 3-5 insights on this topic with links of websites from which you took reference. If possible generate the insights in array format rather than in text format. In that array of objects keep 3 keys like insight, details and reference. The reference field should contain the link of websites related to that topic. The insight field should be of 3 lines and the details field should be of 10 lines.`;
+    // const prompt3 = `${paragraph} Give 3 youtube video links, 3 blog post links and 3 research paper links related to this specific topic in an array of objects format. The objects should contain only two fields, type and url. Give real, active URLs from credible sources`;
+    const prompt3 = `${paragraph}
+
+Give exactly 3 YouTube video links, 3 blog post links, and 3 peer-reviewed research paper links about this topic.
+
+Requirements:
+- The resources must be current (preferably published within the last 2 years).
+- Prefer credible sources (official channels, reputable blogs, trusted academic sites like arXiv, ACM, IEEE).
+- The URLs must be real, active, and not placeholders.
+- Output the results as a JSON array of objects.
+- Each object must contain only:
+  - "type": one of "youtube_video", "blog_post", "research_paper"
+  - "url": direct working URL
+
+No extra text. Return only the JSON array.`;
+
+    const [result1, result2, result3] = await Promise.all([
+      model.generateContent(prompt1),
+      model.generateContent(prompt2),
+      model.generateContent(prompt3),
+    ]);
+
+    const summary = result1.response.text();
+    const insights = result2.response.text();
+    const links = result3.response.text();
+
+    res.status(201).json({
+      message: "Summary generated successfully",
+      content: insights,
+      summary,
+      links,
+    });
+  } catch (error) {
+    console.error(
+      "Error:",
+      error.response ? error.response.data : error.message
+    );
+    throw error;
+  }
+};
 
 module.exports = {
   youtubeSummary,
   youtubeTranscript,
   answerTranscript,
   languageChange,
+  deepSearch,
 };

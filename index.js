@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const fileUpload = require("express-fileupload");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const functions = require("firebase-functions");
@@ -10,6 +11,7 @@ const textToImageRouter = require("./functions/routes/textToImageRoutes");
 const globalErrorHandler = require("./functions/controllers/errorController");
 const bgRemoverRouter = require("./functions/routes/bgRemoverRoutes");
 const ytSummarizerRouter = require("./functions/routes/ytSummarizerRoutes");
+const aiSubtitlerRouter = require("./functions/routes/aiSubtitlerRoutes");
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -26,6 +28,7 @@ app.use(
   })
 );
 app.options("*", cors());
+app.use(fileUpload());
 app.use(express.json({ limit: "4mb" }));
 app.use(cookieParser());
 
@@ -36,6 +39,7 @@ app.use("/api/textToImage", textToImageRouter);
 app.use("/api/imageCartoonizer", imageCartoonizerRouter);
 app.use("/api/bgRemover", bgRemoverRouter);
 app.use("/api/ytSummarize", ytSummarizerRouter);
+app.use("/api/aiSubtitler", aiSubtitlerRouter);
 
 app.get("/firebase-status", async (req, res) => {
   try {
