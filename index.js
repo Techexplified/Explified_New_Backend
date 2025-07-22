@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
+
 const functions = require("firebase-functions");
 const userRouter = require("./functions/routes/userRoute");
 
@@ -10,6 +12,11 @@ const compressRouter = require('./functions/routes/pdfRoutes/compress.route');
 const mergeRouter = require('./functions/routes/pdfRoutes/merge.route');
 const pdftowordRouter = require('./functions/routes/pdfRoutes/pdftoword.route');
 const pdftoanyRouter = require('./functions/routes/pdfRoutes/pdftoany.route');
+
+const geminiRoutes = require('./functions/routes/geminiRoutes');
+const imagefilterRouter = require('./functions/routes/imagefilterRoutes.js')
+const bgRouter = require('./functions/routes/bgRoutes');
+
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -26,6 +33,9 @@ app.options("*", cors());
 app.use(express.json());
 app.use(cookieParser());
 
+app.use(bodyParser.json());
+
+
 // pdf settings
 app.use(express.static('compressed'));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
@@ -37,6 +47,10 @@ app.use('/merge',mergeRouter);
 app.use('/pdftoword',pdftowordRouter);
 app.use('/pdftoany',pdftoanyRouter);
 
+// for pptmaker
+app.use("/api/gemini",geminiRoutes);
+// for bgRemoverBlur
+app.use("/api/bg",bgRouter);
 //ROUTES
 app.use("/api/users", userRouter);
 

@@ -18,6 +18,13 @@ const mergeRouter = require('./routes/pdfRoutes/merge.route');
 const pdftowordRouter = require('./routes/pdfRoutes/pdftoword.route');
 const pdftoanyRouter = require('./routes/pdfRoutes/pdftoany.route');
 
+// bg routes
+const bgRouter = require('./routes/bgRoutes');
+
+// gemini routes
+const geminiRoutes = require('./routes/geminiRoutes');
+
+
 const app = express();
 
 app.use(
@@ -51,6 +58,11 @@ app.use('/merge',mergeRouter);
 app.use('/pdftoword',pdftowordRouter);
 app.use('/pdftoany',pdftoanyRouter);
 
+// for pptmaker
+app.use("/api/gemini",geminiRoutes);
+// bg remover
+app.use("/api/bg",bgRouter);
+
 app.get("/firebase-status", async (req, res) => {
   try {
     res.status(200).json({ message: "Firebase connected successfully!" });
@@ -59,7 +71,7 @@ app.get("/firebase-status", async (req, res) => {
       message: "Firebase connection failed!",
       error: error.message,
     });
-  }
+  } 
 });
 
 app.all("*", (req, res, next) => {
