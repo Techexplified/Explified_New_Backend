@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const fileUpload = require("express-fileupload");
 const cors = require("cors");
+const path = require("path");
 const cookieParser = require("cookie-parser");
 const functions = require("firebase-functions");
 const userRouter = require("./functions/routes/userRoute");
@@ -40,6 +41,16 @@ app.use("/api/imageCartoonizer", imageCartoonizerRouter);
 app.use("/api/bgRemover", bgRemoverRouter);
 app.use("/api/ytSummarize", ytSummarizerRouter);
 app.use("/api/aiSubtitler", aiSubtitlerRouter);
+
+app.use("/uploads/:filename", (req, res) => {
+  const file = path.join(
+    __dirname,
+    "functions",
+    "uploads",
+    req.params.filename
+  );
+  res.download(file);
+});
 
 app.get("/firebase-status", async (req, res) => {
   try {

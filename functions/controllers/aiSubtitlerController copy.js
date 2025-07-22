@@ -56,76 +56,6 @@ async function getContent(file) {
   }
 }
 
-// const generateSubtitle = async (req, res, next) => {
-//   try {
-//     if (!req.files || !req.files.video) {
-//       return res.status(400).json({ error: "No video uploaded" });
-//     }
-
-//     const videoFile = req.files.video;
-//     const uploadDir = path.join(__dirname, "..", "uploads");
-
-//     if (!fs.existsSync(uploadDir)) {
-//       fs.mkdirSync(uploadDir);
-//     }
-
-//     const uploadPath = path.join(uploadDir, videoFile.name);
-
-//     await videoFile.mv(uploadPath);
-
-//     const response = await fileUpload(uploadPath, req.files.video);
-//     const srtContent = await getContent(response);
-
-//     const srtPath = path.join(
-//       uploadDir,
-//       `${path.parse(videoFile.name).name}.srt`
-//     );
-//     fs.writeFileSync(srtPath, srtContent, "utf-8");
-
-//     const outputVideoPath = path.join(
-//       uploadDir,
-//       `${path.parse(videoFile.name).name}-subtitled.mp4`
-//     );
-
-//     const input = uploadPath.replace(/\\/g, "/");
-//     const srt = srtPath.replace(/\\/g, "/");
-//     const srtF = srt.replace(/^([A-Za-z]):/, "$1\\:");
-//     const output = outputVideoPath.replace(/\\/g, "/");
-
-//     // console.log(input);
-//     console.log(srtF);
-//     // console.log(output);
-
-//     // Escape paths to avoid issues with spaces
-//     const ffmpegCmd = `ffmpeg -y -i "C:/Users/KIIT0001/Desktop/Explified/Backend_Explified/functions/uploads/VID_20250710194533.mp4" -vf "subtitles='C\\:/Users/KIIT0001/Desktop/Explified/Backend_Explified/functions/uploads/VID_20250710194533.srt'" "C:/Users/KIIT0001/Desktop/Explified/Backend_Explified/functions/uploads/VID_20250710194533-subtitled.mp4"`;
-//     // const ffmpegCmd = `ffmpeg -y -i "${input}" -vf subtitles="${srt}" "${output}"`;
-
-//     // console.log("Running FFmpeg:", ffmpegCmd);
-
-//     // Run FFmpeg
-//     await new Promise((resolve, reject) => {
-//       exec(ffmpegCmd, (error, stdout, stderr) => {
-//         if (error) {
-//           console.error("FFmpeg error:", stderr);
-//           return reject(error);
-//         }
-//         console.log("FFmpeg done:", stdout);
-//         resolve();
-//       });
-//     });
-
-//     res.download(outputVideoPath);
-
-//     res.status(201).json({
-//       message: "Subtitle generated successfully",
-//       content: genContent,
-//       videoFile: outputVideoPath,
-//     });
-//   } catch (error) {
-//     console.error("Error:", error);
-//     next(error);
-//   }
-// };
 const generateSubtitle = async (req, res, next) => {
   try {
     if (!req.files || !req.files.video) {
@@ -135,68 +65,72 @@ const generateSubtitle = async (req, res, next) => {
     const videoFile = req.files.video;
     const uploadDir = path.join(__dirname, "..", "uploads");
 
-    // Ensure uploads directory exists
     if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir, { recursive: true });
+      fs.mkdirSync(uploadDir);
     }
 
-    // Save uploaded video
     const uploadPath = path.join(uploadDir, videoFile.name);
+
     await videoFile.mv(uploadPath);
 
-    // Get SRT content from video
     const response = await fileUpload(uploadPath, req.files.video);
     const srtContent = await getContent(response);
 
-    // if (!srtContent || srtContent.trim() === "") {
-    //   return res.status(500).json({ error: "Generated subtitle is empty." });
-    // }
+    // console.log(genContent);
 
-    // // Write .srt file
-    // const srtFilename = `${path.parse(videoFile.name).name}.srt`;
-    // const srtPath = path.join(uploadDir, srtFilename);
-    // fs.writeFileSync(srtPath, srtContent, "utf-8");
+    // const srtContent = convertToSRT(genContent);
+    // Save SRT file
+    const srtPath = path.join(
+      uploadDir,
+      `${path.parse(videoFile.name).name}.srt`
+    );
+    fs.writeFileSync(srtPath, srtContent, "utf-8");
 
-    // // Prepare final output path
-    // const outputVideoPath = path.join(
-    //   uploadDir,
-    //   `${path.parse(videoFile.name).name}-subtitled.mp4`
-    // );
+    // Define output path
+    const outputVideoPath = path.join(
+      uploadDir,
+      `${path.parse(videoFile.name).name}-subtitled.mp4`
+    );
 
-    // // Use forward slashes for FFmpeg
-    // const input = uploadPath.replace(/\\/g, "/");
-    // const srt = srtPath.replace(/\\/g, "/");
-    // const output = outputVideoPath.replace(/\\/g, "/");
+    const input = uploadPath.replace(/\\/g, "/");
+    const srt = srtPath.replace(/\\/g, "/");
+    const srtF = srt.replace(/^([A-Za-z]):/, "$1\\:");
+    const output = outputVideoPath.replace(/\\/g, "/");
 
-    // // FFmpeg subtitle command (correct format)
-    // const ffmpegCmd = `ffmpeg -y -i "${input}" -vf "subtitles='${srt}'" "${output}"`;
+    // console.log(input);
+    console.log(srtF);
+    // console.log(output);
 
-    // // Run FFmpeg
-    // await new Promise((resolve, reject) => {
-    //   exec(ffmpegCmd, (error, stdout, stderr) => {
-    //     if (error) {
-    //       console.error("FFmpeg error:", stderr);
-    //       return reject(new Error("FFmpeg processing failed"));
-    //     }
-    //     console.log("FFmpeg success:", stdout);
-    //     resolve();
-    //   });
-    // });
+    // Escape paths to avoid issues with spaces
+    const ffmpegCmd = `ffmpeg -y -i "C:/Users/KIIT0001/Desktop/Explified/Backend_Explified/functions/uploads/VID_20250710194533.mp4" -vf "subtitles='C\\:/Users/KIIT0001/Desktop/Explified/Backend_Explified/functions/uploads/VID_20250710194533.srt'" "C:/Users/KIIT0001/Desktop/Explified/Backend_Explified/functions/uploads/VID_20250710194533-subtitled.mp4"`;
+    // const ffmpegCmd = `ffmpeg -y -i "${input}" -vf subtitles="${srt}" "${output}"`;
 
-    // // Send file for download
-    // res.download(outputVideoPath);
+    // console.log("Running FFmpeg:", ffmpegCmd);
+
+    // Run FFmpeg
+    await new Promise((resolve, reject) => {
+      exec(ffmpegCmd, (error, stdout, stderr) => {
+        if (error) {
+          console.error("FFmpeg error:", stderr);
+          return reject(error);
+        }
+        console.log("FFmpeg done:", stdout);
+        resolve();
+      });
+    });
+
+    res.download(outputVideoPath);
 
     res.status(201).json({
       message: "Subtitle generated successfully",
-      content: srtContent,
-      // videoFile: outputVideoPath,
+      content: genContent,
+      videoFile: outputVideoPath,
     });
   } catch (error) {
     console.error("Error:", error);
     next(error);
   }
 };
-
 const changeSubtitleLanguage = async (req, res, next) => {
   try {
     const { language, text } = req.body;
