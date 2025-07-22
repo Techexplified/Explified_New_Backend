@@ -3,7 +3,7 @@ const fs = require("fs");
 const fsPromises = require("fs/promises");
 const FormData = require("form-data");
 
-export const removeBackground = async (req, res) => {
+const removeBackground = async (req, res) => {
   try {
     const formData = new FormData();
     formData.append("image", fs.createReadStream(req.file.path));
@@ -30,7 +30,7 @@ export const removeBackground = async (req, res) => {
   }
 };
 
-export const blurBackground = async (req, res) => {
+const blurBackground = async (req, res) => {
   if (!req.file) return res.status(400).send("No image uploaded.");
 
   const radius = Math.max(1, Math.min(100, Number(req.body.radius) || 10));
@@ -62,4 +62,9 @@ export const blurBackground = async (req, res) => {
   } finally {
     fsPromises.unlink(req.file.path).catch(console.error);
   }
+};
+
+module.exports = {
+  blurBackground,
+  removeBackground,
 };
