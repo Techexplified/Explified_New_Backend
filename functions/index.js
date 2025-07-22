@@ -11,6 +11,7 @@ const { error } = require("firebase-functions/logger");
 const globalErrorHandler = require("./controllers/errorController");
 const bgRemoverRouter = require("./routes/bgRemoverRoutes");
 const ytSummarizerRouter = require("./routes/ytSummarizerRoutes");
+const aiSubtitlerRouter = require("./routes/aiSubtitlerRoutes");
 
 // pdf imports
 const compressRouter = require('./routes/pdfRoutes/compress.route');
@@ -51,6 +52,7 @@ app.use("/api/textToImage", textToImageRouter);
 app.use("/api/imageCartoonizer", imageCartoonizerRouter);
 app.use("/api/bgRemover", bgRemoverRouter);
 app.use("/api/ytSummarize", ytSummarizerRouter);
+app.use("/api/aiSubtitler", aiSubtitlerRouter);
 
 // pdf routes
 app.use('/compress',compressRouter);

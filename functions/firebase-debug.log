@@ -1,0 +1,720 @@
+[debug] [2025-07-22T13:41:43.123Z] ----------------------------------------------------------------------
+[debug] [2025-07-22T13:41:43.126Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\KIIT0001\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2025-07-22T13:41:43.127Z] CLI Version:   14.3.1
+[debug] [2025-07-22T13:41:43.127Z] Platform:      win32
+[debug] [2025-07-22T13:41:43.127Z] Node Version:  v20.12.2
+[debug] [2025-07-22T13:41:43.127Z] Time:          Tue Jul 22 2025 19:11:43 GMT+0530 (India Standard Time)
+[debug] [2025-07-22T13:41:43.127Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-22T13:41:43.366Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-07-22T13:41:43.367Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"glob"}
+[debug] [2025-07-22T13:41:43.367Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"glob"}
+[debug] [2025-07-22T13:41:43.367Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"glob"}
+[debug] [2025-07-22T13:41:43.367Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"glob"}
+[debug] [2025-07-22T13:41:43.367Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-07-22T13:41:43.367Z] Object "/hosting/rewrites/0" in "firebase.json" has unknown property: {"additionalProperty":"dynamicLinks"}
+[debug] [2025-07-22T13:41:43.367Z] Object "/hosting/rewrites/0" in "firebase.json" has unknown property: {"additionalProperty":"dynamicLinks"}
+[debug] [2025-07-22T13:41:43.367Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"run"}
+[debug] [2025-07-22T13:41:43.367Z] Object "/hosting/rewrites/0" in "firebase.json" has unknown property: {"additionalProperty":"function"}
+[debug] [2025-07-22T13:41:43.367Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-07-22T13:41:43.367Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"regex"}
+[debug] [2025-07-22T13:41:43.368Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"regex"}
+[debug] [2025-07-22T13:41:43.368Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"regex"}
+[debug] [2025-07-22T13:41:43.368Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"regex"}
+[debug] [2025-07-22T13:41:43.368Z] Field "/hosting/rewrites/0" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2025-07-22T13:41:43.368Z] Field "/hosting" in "firebase.json" is possibly invalid: must be array
+[debug] [2025-07-22T13:41:43.368Z] Field "/hosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2025-07-22T13:41:43.376Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-22T13:41:43.377Z] > authorizing via signed-in user (tech@explified.com)
+[debug] [2025-07-22T13:41:43.377Z] [iam] checking project explified-app for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-07-22T13:41:43.378Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:43.378Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:43.379Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions [none]
+[debug] [2025-07-22T13:41:43.379Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:41:43.379Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-22T13:41:45.350Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions 200
+[debug] [2025-07-22T13:41:45.351Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-22T13:41:45.351Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:45.351Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:45.351Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/explified-app/serviceAccounts/explified-app@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-07-22T13:41:45.351Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/explified-app/serviceAccounts/explified-app@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-07-22T13:41:47.413Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/explified-app/serviceAccounts/explified-app@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2025-07-22T13:41:47.413Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/explified-app/serviceAccounts/explified-app@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'explified-app'...
+[info] 
+[info] i  deploying functions 
+[debug] [2025-07-22T13:41:47.419Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:47.419Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:47.419Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2025-07-22T13:41:47.419Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:41:49.224Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudresourcemanager.googleapis.com 200
+[debug] [2025-07-22T13:41:49.224Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2025-07-22T13:41:49.224Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:49.224Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:49.225Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/explified-app [none]
+[debug] [2025-07-22T13:41:49.621Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/explified-app 200
+[debug] [2025-07-22T13:41:49.621Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/explified-app {"projectNumber":"901696391731","projectId":"explified-app","lifecycleState":"ACTIVE","name":"Explified","labels":{"firebase":"enabled"},"createTime":"2020-12-01T14:58:43.526Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2025-07-22T13:41:49.624Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:49.624Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:49.625Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:49.625Z] Checked if tokens are valid: true, expires at: 1753195010409
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2025-07-22T13:41:49.626Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:49.626Z] Checked if tokens are valid: true, expires at: 1753195010409
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-07-22T13:41:49.627Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:49.627Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:49.627Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudfunctions.googleapis.com [none]
+[debug] [2025-07-22T13:41:49.627Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:41:49.628Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/runtimeconfig.googleapis.com [none]
+[debug] [2025-07-22T13:41:49.628Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:41:49.631Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudbuild.googleapis.com [none]
+[debug] [2025-07-22T13:41:49.631Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudbuild.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:41:49.634Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/artifactregistry.googleapis.com [none]
+[debug] [2025-07-22T13:41:49.634Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/artifactregistry.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:41:50.040Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudfunctions.googleapis.com 200
+[debug] [2025-07-22T13:41:50.040Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2025-07-22T13:41:51.375Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/runtimeconfig.googleapis.com 200
+[debug] [2025-07-22T13:41:51.375Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2025-07-22T13:41:51.377Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/artifactregistry.googleapis.com 200
+[debug] [2025-07-22T13:41:51.378Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2025-07-22T13:41:51.379Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudbuild.googleapis.com 200
+[debug] [2025-07-22T13:41:51.379Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2025-07-22T13:41:51.381Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:51.381Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:51.381Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/explified-app/adminSdkConfig [none]
+[debug] [2025-07-22T13:41:53.103Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/explified-app/adminSdkConfig 200
+[debug] [2025-07-22T13:41:53.103Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/explified-app/adminSdkConfig {"projectId":"explified-app","databaseURL":"https://explified-app.firebaseio.com","storageBucket":"explified-app.appspot.com","locationId":"us-central"}
+[debug] [2025-07-22T13:41:53.104Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:53.104Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:53.104Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs [none]
+[debug] [2025-07-22T13:41:54.483Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs 200
+[debug] [2025-07-22T13:41:54.483Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs {"configs":[{"name":"projects/explified-app/configs/jwt"},{"name":"projects/explified-app/configs/app"},{"name":"projects/explified-app/configs/auth"},{"name":"projects/explified-app/configs/corcel"}]}
+[debug] [2025-07-22T13:41:54.483Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:54.483Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:54.484Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:54.484Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:54.484Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:54.484Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:54.484Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:54.484Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:54.484Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables [none]
+[debug] [2025-07-22T13:41:54.485Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables [none]
+[debug] [2025-07-22T13:41:54.488Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables [none]
+[debug] [2025-07-22T13:41:54.491Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables [none]
+[debug] [2025-07-22T13:41:55.257Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables 200
+[debug] [2025-07-22T13:41:55.258Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables {"variables":[{"name":"projects/explified-app/configs/app/variables/node_env","updateTime":"2024-12-10T17:57:06.325962351Z"}]}
+[debug] [2025-07-22T13:41:55.258Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.258Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.258Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables/node_env [none]
+[debug] [2025-07-22T13:41:55.627Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables/node_env 200
+[debug] [2025-07-22T13:41:55.627Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables/node_env {"name":"projects/explified-app/configs/app/variables/node_env","updateTime":"2024-12-10T17:57:06.325962351Z","text":"production"}
+[debug] [2025-07-22T13:41:55.692Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables 200
+[debug] [2025-07-22T13:41:55.693Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables {"variables":[{"name":"projects/explified-app/configs/jwt/variables/secret","updateTime":"2025-04-18T09:10:23.740942058Z"},{"name":"projects/explified-app/configs/jwt/variables/cookie_expires_in","updateTime":"2025-04-18T09:12:01.818711890Z"},{"name":"projects/explified-app/configs/jwt/variables/expires_in","updateTime":"2025-04-18T09:10:55.788660416Z"}]}
+[debug] [2025-07-22T13:41:55.693Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.693Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.693Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.693Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.693Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.693Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.693Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/secret [none]
+[debug] [2025-07-22T13:41:55.694Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/cookie_expires_in [none]
+[debug] [2025-07-22T13:41:55.695Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/expires_in [none]
+[debug] [2025-07-22T13:41:55.878Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables 200
+[debug] [2025-07-22T13:41:55.878Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables {"variables":[{"name":"projects/explified-app/configs/auth/variables/refresh_token_expiry","updateTime":"2024-11-27T14:49:31.644139924Z"},{"name":"projects/explified-app/configs/auth/variables/refresh_token_secret","updateTime":"2024-11-27T14:46:08.280943641Z"},{"name":"projects/explified-app/configs/auth/variables/access_token_expiry","updateTime":"2024-11-27T14:49:05.302176645Z"},{"name":"projects/explified-app/configs/auth/variables/jwt_secret","updateTime":"2024-10-10T14:41:31.063966704Z"}]}
+[debug] [2025-07-22T13:41:55.879Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.879Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.879Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.879Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.879Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.879Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.879Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.879Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.879Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_expiry [none]
+[debug] [2025-07-22T13:41:55.880Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_secret [none]
+[debug] [2025-07-22T13:41:55.880Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/access_token_expiry [none]
+[debug] [2025-07-22T13:41:55.884Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/jwt_secret [none]
+[debug] [2025-07-22T13:41:55.887Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables 200
+[debug] [2025-07-22T13:41:55.887Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables {"variables":[{"name":"projects/explified-app/configs/corcel/variables/api_key","updateTime":"2024-08-06T12:50:34.711645598Z"}]}
+[debug] [2025-07-22T13:41:55.887Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.888Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:41:55.888Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables/api_key [none]
+[debug] [2025-07-22T13:41:56.234Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_expiry 200
+[debug] [2025-07-22T13:41:56.235Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_expiry {"name":"projects/explified-app/configs/auth/variables/refresh_token_expiry","updateTime":"2024-11-27T14:49:31.644139924Z","text":"7d"}
+[debug] [2025-07-22T13:41:56.253Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_secret 200
+[debug] [2025-07-22T13:41:56.253Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_secret {"name":"projects/explified-app/configs/auth/variables/refresh_token_secret","updateTime":"2024-11-27T14:46:08.280943641Z","text":"d4b9258adfc2854f391a5a7d85eb7d7e84f1e2d17a4f6354b4bb6ea791c5147b06f1de94574dc99d2b3bc8edcc58265aa834e912aa52d2e9f10d5b79e604a123"}
+[debug] [2025-07-22T13:41:56.454Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/access_token_expiry 200
+[debug] [2025-07-22T13:41:56.454Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/access_token_expiry {"name":"projects/explified-app/configs/auth/variables/access_token_expiry","updateTime":"2024-11-27T14:49:05.302176645Z","text":"1h"}
+[debug] [2025-07-22T13:41:56.456Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables/api_key 200
+[debug] [2025-07-22T13:41:56.456Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables/api_key {"name":"projects/explified-app/configs/corcel/variables/api_key","updateTime":"2024-08-06T12:50:34.711645598Z","text":"fc5de5a3-2de6-4d11-ae90-ce1ef0bef2aa"}
+[debug] [2025-07-22T13:41:56.483Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/jwt_secret 200
+[debug] [2025-07-22T13:41:56.484Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/jwt_secret {"name":"projects/explified-app/configs/auth/variables/jwt_secret","updateTime":"2024-10-10T14:41:31.063966704Z","text":"eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cC"}
+[debug] [2025-07-22T13:41:56.863Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/cookie_expires_in 200
+[debug] [2025-07-22T13:41:56.863Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/cookie_expires_in {"name":"projects/explified-app/configs/jwt/variables/cookie_expires_in","updateTime":"2025-04-18T09:12:01.818711890Z","text":"7d"}
+[debug] [2025-07-22T13:41:56.869Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/secret 200
+[debug] [2025-07-22T13:41:56.869Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/secret {"name":"projects/explified-app/configs/jwt/variables/secret","updateTime":"2025-04-18T09:10:23.740942058Z","text":"mySuperSecretKeyExplified"}
+[debug] [2025-07-22T13:41:57.095Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/expires_in 200
+[debug] [2025-07-22T13:41:57.096Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/expires_in {"name":"projects/explified-app/configs/jwt/variables/expires_in","updateTime":"2025-04-18T09:10:55.788660416Z","text":"3600"}
+[debug] [2025-07-22T13:41:57.099Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2025-07-22T13:41:58.972Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google/genai": "^0.9.0",
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.8.4",
+    "bcryptjs": "^2.4.3",
+    "convertapi": "^1.15.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.5.1",
+    "firebase": "^8.6.1",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "form-data": "^4.0.3",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.2",
+    "nodemon": "^2.0.7",
+    "openai": "^5.8.3",
+    "path": "^0.12.7",
+    "pdf-lib": "^1.17.1",
+    "replicate": "^1.0.1",
+    "youtube-transcript": "^1.2.1"
+  },
+  "private": true
+}
+[debug] [2025-07-22T13:41:58.973Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-07-22T13:41:58.984Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-07-22T13:41:58.996Z] Found firebase-functions binary at 'C:\Users\KIIT0001\Desktop\Explified\Backend_Explified\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8866
+
+[debug] [2025-07-22T13:42:00.503Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2025-07-22T13:42:05.552Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:42:05.552Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:42:05.552Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/firebaseextensions.googleapis.com [none]
+[debug] [2025-07-22T13:42:05.552Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:42:07.547Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/firebaseextensions.googleapis.com 200
+[debug] [2025-07-22T13:42:07.547Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/firebaseextensions.googleapis.com [omitted]
+[info] +  extensions: required API firebaseextensions.googleapis.com is enabled 
+[debug] [2025-07-22T13:42:07.547Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-22T13:42:07.547Z] > authorizing via signed-in user (tech@explified.com)
+[debug] [2025-07-22T13:42:07.547Z] [iam] checking project explified-app for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2025-07-22T13:42:07.548Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:42:07.548Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:42:07.548Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions [none]
+[debug] [2025-07-22T13:42:07.548Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:42:07.548Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-07-22T13:42:09.380Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions 200
+[debug] [2025-07-22T13:42:09.380Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-07-22T13:42:09.382Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:42:09.382Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:42:09.383Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/explified-app/instances pageSize=100&pageToken=
+[debug] [2025-07-22T13:42:11.450Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/explified-app/instances 200
+[debug] [2025-07-22T13:42:11.450Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/explified-app/instances {}
+[debug] [2025-07-22T13:42:11.454Z] Failed to validate key PORT: Error: Key PORT is reserved for internal use.
+[error] Error: Failed to load environment variables from .env.:
+[error] - Error Key PORT is reserved for internal use.
+[debug] [2025-07-22T13:46:52.727Z] ----------------------------------------------------------------------
+[debug] [2025-07-22T13:46:52.731Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\KIIT0001\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2025-07-22T13:46:52.731Z] CLI Version:   14.3.1
+[debug] [2025-07-22T13:46:52.732Z] Platform:      win32
+[debug] [2025-07-22T13:46:52.732Z] Node Version:  v20.12.2
+[debug] [2025-07-22T13:46:52.732Z] Time:          Tue Jul 22 2025 19:16:52 GMT+0530 (India Standard Time)
+[debug] [2025-07-22T13:46:52.732Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-22T13:46:52.969Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-07-22T13:46:52.969Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"glob"}
+[debug] [2025-07-22T13:46:52.969Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"glob"}
+[debug] [2025-07-22T13:46:52.969Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"glob"}
+[debug] [2025-07-22T13:46:52.969Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"glob"}
+[debug] [2025-07-22T13:46:52.969Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-07-22T13:46:52.969Z] Object "/hosting/rewrites/0" in "firebase.json" has unknown property: {"additionalProperty":"dynamicLinks"}
+[debug] [2025-07-22T13:46:52.970Z] Object "/hosting/rewrites/0" in "firebase.json" has unknown property: {"additionalProperty":"dynamicLinks"}
+[debug] [2025-07-22T13:46:52.970Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"run"}
+[debug] [2025-07-22T13:46:52.970Z] Object "/hosting/rewrites/0" in "firebase.json" has unknown property: {"additionalProperty":"function"}
+[debug] [2025-07-22T13:46:52.970Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-07-22T13:46:52.970Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"regex"}
+[debug] [2025-07-22T13:46:52.970Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"regex"}
+[debug] [2025-07-22T13:46:52.970Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"regex"}
+[debug] [2025-07-22T13:46:52.970Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"regex"}
+[debug] [2025-07-22T13:46:52.970Z] Field "/hosting/rewrites/0" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2025-07-22T13:46:52.970Z] Field "/hosting" in "firebase.json" is possibly invalid: must be array
+[debug] [2025-07-22T13:46:52.970Z] Field "/hosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2025-07-22T13:46:52.976Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-22T13:46:52.976Z] > authorizing via signed-in user (tech@explified.com)
+[debug] [2025-07-22T13:46:52.976Z] [iam] checking project explified-app for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-07-22T13:46:52.977Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:46:52.978Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:46:52.978Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions [none]
+[debug] [2025-07-22T13:46:52.979Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:46:52.979Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-22T13:46:54.778Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions 200
+[debug] [2025-07-22T13:46:54.779Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-22T13:46:54.779Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:46:54.779Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:46:54.779Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/explified-app/serviceAccounts/explified-app@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-07-22T13:46:54.779Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/explified-app/serviceAccounts/explified-app@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-07-22T13:46:56.809Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/explified-app/serviceAccounts/explified-app@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2025-07-22T13:46:56.809Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/explified-app/serviceAccounts/explified-app@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'explified-app'...
+[info] 
+[info] i  deploying functions 
+[debug] [2025-07-22T13:46:56.817Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:46:56.817Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:46:56.817Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2025-07-22T13:46:56.817Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:46:58.998Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudresourcemanager.googleapis.com 200
+[debug] [2025-07-22T13:46:58.998Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2025-07-22T13:46:58.998Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:46:58.999Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:46:58.999Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/explified-app [none]
+[debug] [2025-07-22T13:46:59.388Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/explified-app 200
+[debug] [2025-07-22T13:46:59.388Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/explified-app {"projectNumber":"901696391731","projectId":"explified-app","lifecycleState":"ACTIVE","name":"Explified","labels":{"firebase":"enabled"},"createTime":"2020-12-01T14:58:43.526Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2025-07-22T13:46:59.390Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:46:59.390Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:46:59.391Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:46:59.391Z] Checked if tokens are valid: true, expires at: 1753195010409
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2025-07-22T13:46:59.392Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:46:59.392Z] Checked if tokens are valid: true, expires at: 1753195010409
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-07-22T13:46:59.392Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:46:59.392Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:46:59.392Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudfunctions.googleapis.com [none]
+[debug] [2025-07-22T13:46:59.393Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:46:59.393Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/runtimeconfig.googleapis.com [none]
+[debug] [2025-07-22T13:46:59.393Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:46:59.396Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudbuild.googleapis.com [none]
+[debug] [2025-07-22T13:46:59.396Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudbuild.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:46:59.398Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/artifactregistry.googleapis.com [none]
+[debug] [2025-07-22T13:46:59.398Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/artifactregistry.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:46:59.892Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudfunctions.googleapis.com 200
+[debug] [2025-07-22T13:46:59.892Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2025-07-22T13:47:01.426Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/runtimeconfig.googleapis.com 200
+[debug] [2025-07-22T13:47:01.426Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2025-07-22T13:47:01.427Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudbuild.googleapis.com 200
+[debug] [2025-07-22T13:47:01.427Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2025-07-22T13:47:01.449Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/artifactregistry.googleapis.com 200
+[debug] [2025-07-22T13:47:01.449Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2025-07-22T13:47:01.450Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:01.450Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:01.452Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/explified-app/adminSdkConfig [none]
+[debug] [2025-07-22T13:47:02.819Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/explified-app/adminSdkConfig 200
+[debug] [2025-07-22T13:47:02.819Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/explified-app/adminSdkConfig {"projectId":"explified-app","databaseURL":"https://explified-app.firebaseio.com","storageBucket":"explified-app.appspot.com","locationId":"us-central"}
+[debug] [2025-07-22T13:47:02.821Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:02.821Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:02.822Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs [none]
+[debug] [2025-07-22T13:47:03.683Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs 200
+[debug] [2025-07-22T13:47:03.683Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs {"configs":[{"name":"projects/explified-app/configs/auth"},{"name":"projects/explified-app/configs/corcel"},{"name":"projects/explified-app/configs/jwt"},{"name":"projects/explified-app/configs/app"}]}
+[debug] [2025-07-22T13:47:03.684Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:03.684Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:03.684Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:03.684Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:03.684Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:03.685Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:03.685Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:03.685Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:03.685Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables [none]
+[debug] [2025-07-22T13:47:03.686Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables [none]
+[debug] [2025-07-22T13:47:03.690Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables [none]
+[debug] [2025-07-22T13:47:03.694Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables [none]
+[debug] [2025-07-22T13:47:04.232Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables 200
+[debug] [2025-07-22T13:47:04.232Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables {"variables":[{"name":"projects/explified-app/configs/auth/variables/jwt_secret","updateTime":"2024-10-10T14:41:31.063966704Z"},{"name":"projects/explified-app/configs/auth/variables/refresh_token_expiry","updateTime":"2024-11-27T14:49:31.644139924Z"},{"name":"projects/explified-app/configs/auth/variables/refresh_token_secret","updateTime":"2024-11-27T14:46:08.280943641Z"},{"name":"projects/explified-app/configs/auth/variables/access_token_expiry","updateTime":"2024-11-27T14:49:05.302176645Z"}]}
+[debug] [2025-07-22T13:47:04.233Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:04.233Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:04.233Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:04.233Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:04.233Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:04.233Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:04.233Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:04.233Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:04.233Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/jwt_secret [none]
+[debug] [2025-07-22T13:47:04.234Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_expiry [none]
+[debug] [2025-07-22T13:47:04.237Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_secret [none]
+[debug] [2025-07-22T13:47:04.239Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/access_token_expiry [none]
+[debug] [2025-07-22T13:47:04.284Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables 200
+[debug] [2025-07-22T13:47:04.285Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables {"variables":[{"name":"projects/explified-app/configs/app/variables/node_env","updateTime":"2024-12-10T17:57:06.325962351Z"}]}
+[debug] [2025-07-22T13:47:04.285Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:04.285Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:04.285Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables/node_env [none]
+[debug] [2025-07-22T13:47:04.668Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables/node_env 200
+[debug] [2025-07-22T13:47:04.669Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables/node_env {"name":"projects/explified-app/configs/app/variables/node_env","updateTime":"2024-12-10T17:57:06.325962351Z","text":"production"}
+[debug] [2025-07-22T13:47:04.791Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/access_token_expiry 200
+[debug] [2025-07-22T13:47:04.792Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/access_token_expiry {"name":"projects/explified-app/configs/auth/variables/access_token_expiry","updateTime":"2024-11-27T14:49:05.302176645Z","text":"1h"}
+[debug] [2025-07-22T13:47:04.800Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_secret 200
+[debug] [2025-07-22T13:47:04.801Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_secret {"name":"projects/explified-app/configs/auth/variables/refresh_token_secret","updateTime":"2024-11-27T14:46:08.280943641Z","text":"d4b9258adfc2854f391a5a7d85eb7d7e84f1e2d17a4f6354b4bb6ea791c5147b06f1de94574dc99d2b3bc8edcc58265aa834e912aa52d2e9f10d5b79e604a123"}
+[debug] [2025-07-22T13:47:04.825Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_expiry 200
+[debug] [2025-07-22T13:47:04.825Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_expiry {"name":"projects/explified-app/configs/auth/variables/refresh_token_expiry","updateTime":"2024-11-27T14:49:31.644139924Z","text":"7d"}
+[debug] [2025-07-22T13:47:05.093Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables 200
+[debug] [2025-07-22T13:47:05.094Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables {"variables":[{"name":"projects/explified-app/configs/corcel/variables/api_key","updateTime":"2024-08-06T12:50:34.711645598Z"}]}
+[debug] [2025-07-22T13:47:05.094Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:05.094Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:05.094Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables/api_key [none]
+[debug] [2025-07-22T13:47:05.095Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables 200
+[debug] [2025-07-22T13:47:05.096Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables {"variables":[{"name":"projects/explified-app/configs/jwt/variables/expires_in","updateTime":"2025-04-18T09:10:55.788660416Z"},{"name":"projects/explified-app/configs/jwt/variables/secret","updateTime":"2025-04-18T09:10:23.740942058Z"},{"name":"projects/explified-app/configs/jwt/variables/cookie_expires_in","updateTime":"2025-04-18T09:12:01.818711890Z"}]}
+[debug] [2025-07-22T13:47:05.096Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:05.096Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:05.096Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:05.096Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:05.096Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:05.096Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:05.097Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/expires_in [none]
+[debug] [2025-07-22T13:47:05.097Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/secret [none]
+[debug] [2025-07-22T13:47:05.098Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/cookie_expires_in [none]
+[debug] [2025-07-22T13:47:05.438Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/jwt_secret 200
+[debug] [2025-07-22T13:47:05.438Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/jwt_secret {"name":"projects/explified-app/configs/auth/variables/jwt_secret","updateTime":"2024-10-10T14:41:31.063966704Z","text":"eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cC"}
+[debug] [2025-07-22T13:47:05.472Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/cookie_expires_in 200
+[debug] [2025-07-22T13:47:05.472Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/cookie_expires_in {"name":"projects/explified-app/configs/jwt/variables/cookie_expires_in","updateTime":"2025-04-18T09:12:01.818711890Z","text":"7d"}
+[debug] [2025-07-22T13:47:05.485Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables/api_key 200
+[debug] [2025-07-22T13:47:05.486Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables/api_key {"name":"projects/explified-app/configs/corcel/variables/api_key","updateTime":"2024-08-06T12:50:34.711645598Z","text":"fc5de5a3-2de6-4d11-ae90-ce1ef0bef2aa"}
+[debug] [2025-07-22T13:47:06.282Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/expires_in 200
+[debug] [2025-07-22T13:47:06.282Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/expires_in {"name":"projects/explified-app/configs/jwt/variables/expires_in","updateTime":"2025-04-18T09:10:55.788660416Z","text":"3600"}
+[debug] [2025-07-22T13:47:06.302Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/secret 200
+[debug] [2025-07-22T13:47:06.302Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/secret {"name":"projects/explified-app/configs/jwt/variables/secret","updateTime":"2025-04-18T09:10:23.740942058Z","text":"mySuperSecretKeyExplified"}
+[debug] [2025-07-22T13:47:06.305Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2025-07-22T13:47:08.333Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google/genai": "^0.9.0",
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.8.4",
+    "bcryptjs": "^2.4.3",
+    "convertapi": "^1.15.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.5.1",
+    "firebase": "^8.6.1",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "form-data": "^4.0.3",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.2",
+    "nodemon": "^2.0.7",
+    "openai": "^5.8.3",
+    "path": "^0.12.7",
+    "pdf-lib": "^1.17.1",
+    "replicate": "^1.0.1",
+    "youtube-transcript": "^1.2.1"
+  },
+  "private": true
+}
+[debug] [2025-07-22T13:47:08.333Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-07-22T13:47:08.335Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-07-22T13:47:08.347Z] Found firebase-functions binary at 'C:\Users\KIIT0001\Desktop\Explified\Backend_Explified\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8474
+
+[debug] [2025-07-22T13:47:09.971Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2025-07-22T13:47:15.053Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:15.054Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:15.054Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/firebaseextensions.googleapis.com [none]
+[debug] [2025-07-22T13:47:15.054Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:47:17.445Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/firebaseextensions.googleapis.com 200
+[debug] [2025-07-22T13:47:17.445Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/firebaseextensions.googleapis.com [omitted]
+[info] +  extensions: required API firebaseextensions.googleapis.com is enabled 
+[debug] [2025-07-22T13:47:17.446Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-22T13:47:17.446Z] > authorizing via signed-in user (tech@explified.com)
+[debug] [2025-07-22T13:47:17.447Z] [iam] checking project explified-app for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2025-07-22T13:47:17.447Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:17.447Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:17.447Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions [none]
+[debug] [2025-07-22T13:47:17.447Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:47:17.447Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-07-22T13:47:19.087Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions 200
+[debug] [2025-07-22T13:47:19.088Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-07-22T13:47:19.089Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:19.089Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:47:19.090Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/explified-app/instances pageSize=100&pageToken=
+[debug] [2025-07-22T13:47:21.057Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/explified-app/instances 200
+[debug] [2025-07-22T13:47:21.057Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/explified-app/instances {}
+[debug] [2025-07-22T13:47:21.059Z] Failed to validate key PORT: Error: Key PORT is reserved for internal use.
+[error] Error: Failed to load environment variables from .env.:
+[error] - Error Key PORT is reserved for internal use.
+[debug] [2025-07-22T13:50:27.177Z] ----------------------------------------------------------------------
+[debug] [2025-07-22T13:50:27.182Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\KIIT0001\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2025-07-22T13:50:27.182Z] CLI Version:   14.3.1
+[debug] [2025-07-22T13:50:27.183Z] Platform:      win32
+[debug] [2025-07-22T13:50:27.183Z] Node Version:  v20.12.2
+[debug] [2025-07-22T13:50:27.183Z] Time:          Tue Jul 22 2025 19:20:27 GMT+0530 (India Standard Time)
+[debug] [2025-07-22T13:50:27.183Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-22T13:50:27.466Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-07-22T13:50:27.467Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"glob"}
+[debug] [2025-07-22T13:50:27.467Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"glob"}
+[debug] [2025-07-22T13:50:27.467Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"glob"}
+[debug] [2025-07-22T13:50:27.467Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"glob"}
+[debug] [2025-07-22T13:50:27.467Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-07-22T13:50:27.467Z] Object "/hosting/rewrites/0" in "firebase.json" has unknown property: {"additionalProperty":"dynamicLinks"}
+[debug] [2025-07-22T13:50:27.467Z] Object "/hosting/rewrites/0" in "firebase.json" has unknown property: {"additionalProperty":"dynamicLinks"}
+[debug] [2025-07-22T13:50:27.468Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"run"}
+[debug] [2025-07-22T13:50:27.468Z] Object "/hosting/rewrites/0" in "firebase.json" has unknown property: {"additionalProperty":"function"}
+[debug] [2025-07-22T13:50:27.468Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"destination"}
+[debug] [2025-07-22T13:50:27.468Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"regex"}
+[debug] [2025-07-22T13:50:27.468Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"regex"}
+[debug] [2025-07-22T13:50:27.468Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"regex"}
+[debug] [2025-07-22T13:50:27.468Z] Object "/hosting/rewrites/0" in "firebase.json" is missing required property: {"missingProperty":"regex"}
+[debug] [2025-07-22T13:50:27.468Z] Field "/hosting/rewrites/0" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2025-07-22T13:50:27.468Z] Field "/hosting" in "firebase.json" is possibly invalid: must be array
+[debug] [2025-07-22T13:50:27.468Z] Field "/hosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2025-07-22T13:50:27.476Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-22T13:50:27.476Z] > authorizing via signed-in user (tech@explified.com)
+[debug] [2025-07-22T13:50:27.476Z] [iam] checking project explified-app for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-07-22T13:50:27.478Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:27.478Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:27.479Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions [none]
+[debug] [2025-07-22T13:50:27.479Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:50:27.479Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-22T13:50:29.094Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions 200
+[debug] [2025-07-22T13:50:29.095Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-07-22T13:50:29.095Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:29.095Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:29.096Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/explified-app/serviceAccounts/explified-app@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-07-22T13:50:29.096Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/explified-app/serviceAccounts/explified-app@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-07-22T13:50:30.936Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/explified-app/serviceAccounts/explified-app@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2025-07-22T13:50:30.936Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/explified-app/serviceAccounts/explified-app@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'explified-app'...
+[info] 
+[info] i  deploying functions 
+[debug] [2025-07-22T13:50:30.943Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:30.943Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:30.943Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2025-07-22T13:50:30.943Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:50:32.963Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudresourcemanager.googleapis.com 200
+[debug] [2025-07-22T13:50:32.963Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2025-07-22T13:50:32.963Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:32.963Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:32.964Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/explified-app [none]
+[debug] [2025-07-22T13:50:33.350Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/explified-app 200
+[debug] [2025-07-22T13:50:33.350Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/explified-app {"projectNumber":"901696391731","projectId":"explified-app","lifecycleState":"ACTIVE","name":"Explified","labels":{"firebase":"enabled"},"createTime":"2020-12-01T14:58:43.526Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2025-07-22T13:50:33.353Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:33.353Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:33.354Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:33.354Z] Checked if tokens are valid: true, expires at: 1753195010409
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2025-07-22T13:50:33.354Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:33.354Z] Checked if tokens are valid: true, expires at: 1753195010409
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-07-22T13:50:33.355Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:33.355Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:33.355Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudfunctions.googleapis.com [none]
+[debug] [2025-07-22T13:50:33.355Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:50:33.356Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/runtimeconfig.googleapis.com [none]
+[debug] [2025-07-22T13:50:33.356Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:50:33.359Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudbuild.googleapis.com [none]
+[debug] [2025-07-22T13:50:33.359Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudbuild.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:50:33.362Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/artifactregistry.googleapis.com [none]
+[debug] [2025-07-22T13:50:33.362Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/artifactregistry.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:50:33.858Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudfunctions.googleapis.com 200
+[debug] [2025-07-22T13:50:33.859Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2025-07-22T13:50:35.404Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudbuild.googleapis.com 200
+[debug] [2025-07-22T13:50:35.405Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2025-07-22T13:50:35.407Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/runtimeconfig.googleapis.com 200
+[debug] [2025-07-22T13:50:35.407Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2025-07-22T13:50:35.470Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/artifactregistry.googleapis.com 200
+[debug] [2025-07-22T13:50:35.470Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2025-07-22T13:50:35.471Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:35.471Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:35.471Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/explified-app/adminSdkConfig [none]
+[debug] [2025-07-22T13:50:36.988Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/explified-app/adminSdkConfig 200
+[debug] [2025-07-22T13:50:36.989Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/explified-app/adminSdkConfig {"projectId":"explified-app","databaseURL":"https://explified-app.firebaseio.com","storageBucket":"explified-app.appspot.com","locationId":"us-central"}
+[debug] [2025-07-22T13:50:36.990Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:36.990Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:36.990Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs [none]
+[debug] [2025-07-22T13:50:37.520Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs 200
+[debug] [2025-07-22T13:50:37.520Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs {"configs":[{"name":"projects/explified-app/configs/auth"},{"name":"projects/explified-app/configs/corcel"},{"name":"projects/explified-app/configs/jwt"},{"name":"projects/explified-app/configs/app"}]}
+[debug] [2025-07-22T13:50:37.521Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:37.521Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:37.521Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:37.521Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:37.522Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:37.522Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:37.522Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:37.522Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:37.522Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables [none]
+[debug] [2025-07-22T13:50:37.523Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables [none]
+[debug] [2025-07-22T13:50:37.526Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables [none]
+[debug] [2025-07-22T13:50:37.529Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables [none]
+[debug] [2025-07-22T13:50:38.087Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables 200
+[debug] [2025-07-22T13:50:38.087Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables {"variables":[{"name":"projects/explified-app/configs/auth/variables/refresh_token_expiry","updateTime":"2024-11-27T14:49:31.644139924Z"},{"name":"projects/explified-app/configs/auth/variables/refresh_token_secret","updateTime":"2024-11-27T14:46:08.280943641Z"},{"name":"projects/explified-app/configs/auth/variables/access_token_expiry","updateTime":"2024-11-27T14:49:05.302176645Z"},{"name":"projects/explified-app/configs/auth/variables/jwt_secret","updateTime":"2024-10-10T14:41:31.063966704Z"}]}
+[debug] [2025-07-22T13:50:38.088Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.088Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.088Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.088Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.088Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.088Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.088Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.088Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.088Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_expiry [none]
+[debug] [2025-07-22T13:50:38.090Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_secret [none]
+[debug] [2025-07-22T13:50:38.093Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/access_token_expiry [none]
+[debug] [2025-07-22T13:50:38.095Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/jwt_secret [none]
+[debug] [2025-07-22T13:50:38.109Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables 200
+[debug] [2025-07-22T13:50:38.109Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables {"variables":[{"name":"projects/explified-app/configs/jwt/variables/expires_in","updateTime":"2025-04-18T09:10:55.788660416Z"},{"name":"projects/explified-app/configs/jwt/variables/secret","updateTime":"2025-04-18T09:10:23.740942058Z"},{"name":"projects/explified-app/configs/jwt/variables/cookie_expires_in","updateTime":"2025-04-18T09:12:01.818711890Z"}]}
+[debug] [2025-07-22T13:50:38.110Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.110Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.110Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.110Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.110Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.110Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.110Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/expires_in [none]
+[debug] [2025-07-22T13:50:38.110Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/secret [none]
+[debug] [2025-07-22T13:50:38.112Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/cookie_expires_in [none]
+[debug] [2025-07-22T13:50:38.269Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables 200
+[debug] [2025-07-22T13:50:38.270Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables {"variables":[{"name":"projects/explified-app/configs/app/variables/node_env","updateTime":"2024-12-10T17:57:06.325962351Z"}]}
+[debug] [2025-07-22T13:50:38.270Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.270Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.270Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables/node_env [none]
+[debug] [2025-07-22T13:50:38.493Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/expires_in 200
+[debug] [2025-07-22T13:50:38.493Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/expires_in {"name":"projects/explified-app/configs/jwt/variables/expires_in","updateTime":"2025-04-18T09:10:55.788660416Z","text":"3600"}
+[debug] [2025-07-22T13:50:38.635Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_secret 200
+[debug] [2025-07-22T13:50:38.635Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_secret {"name":"projects/explified-app/configs/auth/variables/refresh_token_secret","updateTime":"2024-11-27T14:46:08.280943641Z","text":"d4b9258adfc2854f391a5a7d85eb7d7e84f1e2d17a4f6354b4bb6ea791c5147b06f1de94574dc99d2b3bc8edcc58265aa834e912aa52d2e9f10d5b79e604a123"}
+[debug] [2025-07-22T13:50:38.641Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_expiry 200
+[debug] [2025-07-22T13:50:38.641Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/refresh_token_expiry {"name":"projects/explified-app/configs/auth/variables/refresh_token_expiry","updateTime":"2024-11-27T14:49:31.644139924Z","text":"7d"}
+[debug] [2025-07-22T13:50:38.686Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/secret 200
+[debug] [2025-07-22T13:50:38.687Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/secret {"name":"projects/explified-app/configs/jwt/variables/secret","updateTime":"2025-04-18T09:10:23.740942058Z","text":"mySuperSecretKeyExplified"}
+[debug] [2025-07-22T13:50:38.688Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/cookie_expires_in 200
+[debug] [2025-07-22T13:50:38.688Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/jwt/variables/cookie_expires_in {"name":"projects/explified-app/configs/jwt/variables/cookie_expires_in","updateTime":"2025-04-18T09:12:01.818711890Z","text":"7d"}
+[debug] [2025-07-22T13:50:38.840Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/jwt_secret 200
+[debug] [2025-07-22T13:50:38.840Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/jwt_secret {"name":"projects/explified-app/configs/auth/variables/jwt_secret","updateTime":"2024-10-10T14:41:31.063966704Z","text":"eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cC"}
+[debug] [2025-07-22T13:50:38.929Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables 200
+[debug] [2025-07-22T13:50:38.929Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables {"variables":[{"name":"projects/explified-app/configs/corcel/variables/api_key","updateTime":"2024-08-06T12:50:34.711645598Z"}]}
+[debug] [2025-07-22T13:50:38.930Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.930Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:38.930Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables/api_key [none]
+[debug] [2025-07-22T13:50:39.309Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables/api_key 200
+[debug] [2025-07-22T13:50:39.310Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/corcel/variables/api_key {"name":"projects/explified-app/configs/corcel/variables/api_key","updateTime":"2024-08-06T12:50:34.711645598Z","text":"fc5de5a3-2de6-4d11-ae90-ce1ef0bef2aa"}
+[debug] [2025-07-22T13:50:39.443Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables/node_env 200
+[debug] [2025-07-22T13:50:39.444Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/app/variables/node_env {"name":"projects/explified-app/configs/app/variables/node_env","updateTime":"2024-12-10T17:57:06.325962351Z","text":"production"}
+[debug] [2025-07-22T13:50:39.489Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/access_token_expiry 200
+[debug] [2025-07-22T13:50:39.490Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/explified-app/configs/auth/variables/access_token_expiry {"name":"projects/explified-app/configs/auth/variables/access_token_expiry","updateTime":"2024-11-27T14:49:05.302176645Z","text":"1h"}
+[debug] [2025-07-22T13:50:39.493Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2025-07-22T13:50:41.387Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google/genai": "^0.9.0",
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.8.4",
+    "bcryptjs": "^2.4.3",
+    "convertapi": "^1.15.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.5.1",
+    "firebase": "^8.6.1",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "form-data": "^4.0.3",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.2",
+    "nodemon": "^2.0.7",
+    "openai": "^5.8.3",
+    "path": "^0.12.7",
+    "pdf-lib": "^1.17.1",
+    "replicate": "^1.0.1",
+    "youtube-transcript": "^1.2.1"
+  },
+  "private": true
+}
+[debug] [2025-07-22T13:50:41.387Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-07-22T13:50:41.390Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-07-22T13:50:41.397Z] Found firebase-functions binary at 'C:\Users\KIIT0001\Desktop\Explified\Backend_Explified\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8798
+
+[debug] [2025-07-22T13:50:42.958Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2025-07-22T13:50:48.008Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:48.008Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:48.009Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/firebaseextensions.googleapis.com [none]
+[debug] [2025-07-22T13:50:48.009Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:50:50.096Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/firebaseextensions.googleapis.com 200
+[debug] [2025-07-22T13:50:50.096Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/explified-app/services/firebaseextensions.googleapis.com [omitted]
+[info] +  extensions: required API firebaseextensions.googleapis.com is enabled 
+[debug] [2025-07-22T13:50:50.098Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-22T13:50:50.099Z] > authorizing via signed-in user (tech@explified.com)
+[debug] [2025-07-22T13:50:50.099Z] [iam] checking project explified-app for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2025-07-22T13:50:50.099Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:50.100Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:50.100Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions [none]
+[debug] [2025-07-22T13:50:50.100Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions x-goog-quota-user=projects/explified-app
+[debug] [2025-07-22T13:50:50.100Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-07-22T13:50:51.572Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions 200
+[debug] [2025-07-22T13:50:51.573Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/explified-app:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-07-22T13:50:51.574Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:51.574Z] Checked if tokens are valid: true, expires at: 1753195010409
+[debug] [2025-07-22T13:50:51.575Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/explified-app/instances pageSize=100&pageToken=
+[debug] [2025-07-22T13:50:53.310Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/explified-app/instances 200
+[debug] [2025-07-22T13:50:53.310Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/explified-app/instances {}
+[debug] [2025-07-22T13:50:53.313Z] Failed to validate key PORT: Error: Key PORT is reserved for internal use.
+[error] Error: Failed to load environment variables from .env.:
+[error] - Error Key PORT is reserved for internal use.
