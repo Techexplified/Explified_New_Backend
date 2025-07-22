@@ -14,7 +14,6 @@ const pdftowordRouter = require('./functions/routes/pdfRoutes/pdftoword.route');
 const pdftoanyRouter = require('./functions/routes/pdfRoutes/pdftoany.route');
 
 const geminiRoutes = require('./functions/routes/geminiRoutes');
-const imagefilterRouter = require('./functions/routes/imagefilterRoutes.js')
 const bgRouter = require('./functions/routes/bgRoutes');
 
 
