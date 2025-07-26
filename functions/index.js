@@ -24,6 +24,8 @@ const bgRouter = require('./routes/bgRoutes');
 
 // gemini routes
 const geminiRoutes = require('./routes/geminiRoutes');
+const whatsappRouter = require("./routes/whatsappRoutes");
+const youtubeRouter = require("./routes/youtubeRoutes");
 
 
 const app = express();
@@ -64,6 +66,9 @@ app.use('/pdftoany',pdftoanyRouter);
 app.use("/api/gemini",geminiRoutes);
 // bg remover
 app.use("/api/bg",bgRouter);
+
+app.use("/api/whatsapp", whatsappRouter);
+app.use("/api/youtube",youtubeRouter);
 
 app.get("/firebase-status", async (req, res) => {
   try {
