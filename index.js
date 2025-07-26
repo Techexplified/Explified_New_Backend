@@ -26,6 +26,9 @@ const bgRemoverRouter = require("./functions/routes/bgRemoverRoutes");
 const ytSummarizerRouter = require("./functions/routes/ytSummarizerRoutes");
 const aiSubtitlerRouter = require("./functions/routes/aiSubtitlerRoutes");
 
+const whatsappRoutes = require("./functions/routes/whatsappRoutes");
+const youtubeRouter = require("./functions/routes/youtubeRoutes");
+
 const port = process.env.PORT1 || 3000;
 const app = express();
 
@@ -37,12 +40,12 @@ app.use(
   })
 );
 app.options("*", cors());
-app.use(fileUpload());
+// app.use(fileUpload());
 app.use(express.json({ limit: "4mb" }));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
 // pdf settings
 app.use(express.static("compressed"));
@@ -59,6 +62,10 @@ app.use("/pdftoany", pdftoanyRouter);
 app.use("/api/gemini", geminiRoutes);
 // for bgRemoverBlur
 app.use("/api/bg", bgRouter);
+
+app.use("/api/whatsapp", whatsappRoutes);
+app.use("/api/youtube",youtubeRouter);
+
 //ROUTES
 app.use("/api/users", userRouter);
 app.use("/api/textToVideos", textToVideoRouter);
