@@ -14,19 +14,20 @@ const ytSummarizerRouter = require("./routes/ytSummarizerRoutes");
 const aiSubtitlerRouter = require("./routes/aiSubtitlerRoutes");
 
 // pdf imports
-const compressRouter = require('./routes/pdfRoutes/compress.route');
-const mergeRouter = require('./routes/pdfRoutes/merge.route');
-const pdftowordRouter = require('./routes/pdfRoutes/pdftoword.route');
-const pdftoanyRouter = require('./routes/pdfRoutes/pdftoany.route');
+const compressRouter = require("./routes/pdfRoutes/compress.route");
+const mergeRouter = require("./routes/pdfRoutes/merge.route");
+const pdftowordRouter = require("./routes/pdfRoutes/pdftoword.route");
+const pdftoanyRouter = require("./routes/pdfRoutes/pdftoany.route");
 
 // bg routes
-const bgRouter = require('./routes/bgRoutes');
+const bgRouter = require("./routes/bgRoutes");
 
 // gemini routes
-const geminiRoutes = require('./routes/geminiRoutes');
+const geminiRoutes = require("./routes/geminiRoutes");
 const whatsappRouter = require("./routes/whatsappRoutes");
 const youtubeRouter = require("./routes/youtubeRoutes");
-
+const aiGifGeneratorRouter = require("./routes/gifGeneratorRoute");
+const aiMemeGeneratorRouter = require("./routes/memeGeneratorRoute");
 
 const app = express();
 
@@ -43,9 +44,9 @@ app.use(express.json({ limit: "8mb" }));
 app.use(cookieParser());
 
 // pdf settings
-app.use(express.static('compressed'));
-app.use(express.urlencoded({ extended: true, limit: '50mb' }));
-app.use('/uploads', express.static('uploads'));
+app.use(express.static("compressed"));
+app.use(express.urlencoded({ extended: true, limit: "50mb" }));
+app.use("/uploads", express.static("uploads"));
 
 // Routes
 app.use("/api/users", userRouter);
@@ -55,20 +56,22 @@ app.use("/api/imageCartoonizer", imageCartoonizerRouter);
 app.use("/api/bgRemover", bgRemoverRouter);
 app.use("/api/ytSummarize", ytSummarizerRouter);
 app.use("/api/aiSubtitler", aiSubtitlerRouter);
+app.use("/api/aiGifGenerator", aiGifGeneratorRouter);
+app.use("/api/aiMemeGenerator", aiMemeGeneratorRouter);
 
 // pdf routes
-app.use('/compress',compressRouter);
-app.use('/merge',mergeRouter);
-app.use('/pdftoword',pdftowordRouter);
-app.use('/pdftoany',pdftoanyRouter);
+app.use("/compress", compressRouter);
+app.use("/merge", mergeRouter);
+app.use("/pdftoword", pdftowordRouter);
+app.use("/pdftoany", pdftoanyRouter);
 
 // for pptmaker
-app.use("/api/gemini",geminiRoutes);
+app.use("/api/gemini", geminiRoutes);
 // bg remover
-app.use("/api/bg",bgRouter);
+app.use("/api/bg", bgRouter);
 
 app.use("/api/whatsapp", whatsappRouter);
-app.use("/api/youtube",youtubeRouter);
+app.use("/api/youtube", youtubeRouter);
 
 app.get("/firebase-status", async (req, res) => {
   try {
@@ -78,7 +81,7 @@ app.get("/firebase-status", async (req, res) => {
       message: "Firebase connection failed!",
       error: error.message,
     });
-  } 
+  }
 });
 
 app.all("*", (req, res, next) => {

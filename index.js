@@ -28,6 +28,8 @@ const aiSubtitlerRouter = require("./functions/routes/aiSubtitlerRoutes");
 
 const whatsappRoutes = require("./functions/routes/whatsappRoutes");
 const youtubeRouter = require("./functions/routes/youtubeRoutes");
+const aiGifGeneratorRouter = require("./functions/routes/gifGeneratorRoute");
+const aiMemeGeneratorRouter = require("./functions/routes/memeGeneratorRoute");
 
 const port = process.env.PORT1 || 3000;
 const app = express();
@@ -74,6 +76,8 @@ app.use("/api/imageCartoonizer", imageCartoonizerRouter);
 app.use("/api/bgRemover", bgRemoverRouter);
 app.use("/api/ytSummarize", ytSummarizerRouter);
 app.use("/api/aiSubtitler", aiSubtitlerRouter);
+app.use("/api/aiGifGenerator", aiGifGeneratorRouter);
+app.use("/api/aiMemeGenerator", aiMemeGeneratorRouter);
 
 app.use("/uploads/:filename", (req, res) => {
   const file = path.join(
