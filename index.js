@@ -17,6 +17,8 @@ const pdftoanyRouter = require("./functions/routes/pdfRoutes/pdftoany.route");
 
 const geminiRoutes = require("./functions/routes/geminiRoutes");
 const bgRouter = require("./functions/routes/bgRoutes");
+const imagefilterRouter = require("./functions/routes/imagefilterRouter");
+const bgReplaceRoutes = require("./functions/routes/bgReplaceRoutes");
 
 const textToVideoRouter = require("./functions/routes/textToVideoRoutes");
 const imageCartoonizerRouter = require("./functions/routes/imageCartoonizerRoutes");
@@ -34,7 +36,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://explified-home.web.app", "http://localhost:5173"],
+    origin: ["https://explified-home.web.app", "http://localhost:5173","http://localhost:5174"],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"], // Allow PATCH method
     credentials: true,
   })
@@ -62,6 +64,8 @@ app.use("/pdftoany", pdftoanyRouter);
 app.use("/api/gemini", geminiRoutes);
 // for bgRemoverBlur
 app.use("/api/bg", bgRouter);
+app.use("/api/filter", imagefilterRouter);
+app.use("/api/bgReplace", bgReplaceRoutes);
 
 app.use("/api/whatsapp", whatsappRoutes);
 app.use("/api/youtube",youtubeRouter);

@@ -16,6 +16,7 @@
   "dependencies": {
     "@google/genai": "^0.9.0",
     "@google/generative-ai": "^0.24.1",
+    "@huggingface/inference": "^4.6.1",
     "axios": "^1.8.4",
     "bcryptjs": "^2.4.3",
     "convertapi": "^1.15.0",
@@ -37,6 +38,7 @@
     "path": "^0.12.7",
     "pdf-lib": "^1.17.1",
     "replicate": "^1.0.1",
+    "sharp": "^0.34.3",
     "twilio": "^5.7.3",
     "youtube-transcript": "^1.2.1"
   },

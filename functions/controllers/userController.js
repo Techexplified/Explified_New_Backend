@@ -140,9 +140,37 @@ exports.login = async (req, res) => {
 // });
 
 exports.logOut = (req, res) => {
-  res.cookie("explified", "", { maxAge: 0 });
+  res.cookie("explified", "", {
+    maxAge: 0,
+    httpOnly: true,
+    sameSite: "strict",
+    secure: process.env.NODE_ENV !== "development",
+  });
   res.status(200).json({
     status: "success",
     message: "Logged out successfully",
   });
 };
+
+
+
+exports.getUsers = async (req , res)=>{
+   try {
+    const usersRef = db.collection("users");
+    const snapshot = await usersRef.get();
+
+    if (snapshot.empty) {
+      return res.status(404).json({ message: "No users found" });
+    }
+
+    const users = snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+    return res.status(200).json(users);
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+}
