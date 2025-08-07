@@ -42,7 +42,7 @@ app.use(
   })
 );
 app.options("*", cors());
-// app.use(fileUpload());
+app.use(fileUpload());
 app.use(express.json({ limit: "4mb" }));
 app.use(express.json());
 app.use(cookieParser());

@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const fileUpload = require("express-fileupload");
 const cookieParser = require("cookie-parser");
 const { onRequest } = require("firebase-functions/v2/https"); // changes done here
 const userRouter = require("./routes/userRoute");
@@ -40,6 +41,7 @@ app.use(
 );
 
 app.options("*", cors());
+app.use(fileUpload());
 app.use(express.json({ limit: "8mb" }));
 app.use(cookieParser());
 
