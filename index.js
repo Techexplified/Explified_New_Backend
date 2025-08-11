@@ -30,13 +30,18 @@ const whatsappRoutes = require("./functions/routes/whatsappRoutes");
 const youtubeRouter = require("./functions/routes/youtubeRoutes");
 const aiGifGeneratorRouter = require("./functions/routes/gifGeneratorRoute");
 const aiMemeGeneratorRouter = require("./functions/routes/memeGeneratorRoute");
+const imageToVideoRouter = require("./functions/routes/imageToVideoRoute");
 
 const port = process.env.PORT1 || 3000;
 const app = express();
 
 app.use(
   cors({
-    origin: ["https://explified-home.web.app", "http://localhost:5173"],
+    origin: [
+      "https://explified-home.web.app",
+      "https://app.explified.com",
+      "http://localhost:5173",
+    ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"], // Allow PATCH method
     credentials: true,
   })
@@ -78,6 +83,7 @@ app.use("/api/ytSummarize", ytSummarizerRouter);
 app.use("/api/aiSubtitler", aiSubtitlerRouter);
 app.use("/api/aiGifGenerator", aiGifGeneratorRouter);
 app.use("/api/aiMemeGenerator", aiMemeGeneratorRouter);
+app.use("/api/imageToVideo", imageToVideoRouter);
 
 app.use("/uploads/:filename", (req, res) => {
   const file = path.join(

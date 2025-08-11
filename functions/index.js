@@ -34,7 +34,11 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://explified-home.web.app", "https://www.youtube.com"],
+    origin: [
+      "https://explified-home.web.app",
+      "https://app.explified.com",
+      "https://www.youtube.com",
+    ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
