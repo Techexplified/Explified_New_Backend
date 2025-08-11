@@ -1,12 +1,11 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const axios = require("axios");
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY1);
 
 exports.contentForPresentation = async (req, res) => {
   try {
-    const { topic , slideCount } = req.body;
+    const { topic, slideCount } = req.body;
 
     if (!topic) {
       return res.status(400).json({ error: "Missing topic" });
@@ -23,7 +22,7 @@ exports.contentForPresentation = async (req, res) => {
 
     // Step 2: Parse to JSON
     const pptData = JSON.parse(cleaned);
-    
+
     res.status(201).json({
       message: "Content generated successfully",
       pptData,
@@ -37,19 +36,21 @@ exports.contentForPresentation = async (req, res) => {
   }
 };
 
-
 exports.imageForPresentation = async (req, res) => {
   try {
     const prompt = req.body.prompt;
 
-    const response = await fetch("https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${process.env.HF_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ inputs: prompt }),
-    });
+    const response = await fetch(
+      "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.HF_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ inputs: prompt }),
+      }
+    );
 
     if (!response.ok) {
       const err = await response.text();
@@ -63,4 +64,4 @@ exports.imageForPresentation = async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
-}
+};
