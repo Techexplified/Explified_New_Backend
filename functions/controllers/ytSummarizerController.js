@@ -76,7 +76,7 @@ const youtubeTranscript = async (req, res, next) => {
       method: "GET",
       url: "https://youtube-transcriptor.p.rapidapi.com/transcript",
       params: {
-        videoId: cleanVideoId,
+        video_id: cleanVideoId,
         lang: "en",
       },
       headers: {
@@ -90,16 +90,12 @@ const youtubeTranscript = async (req, res, next) => {
 
     const transcript = response.data[0].transcription;
 
-    // console.log(transcript);
-
-    const paragraph = transcript.map((item) => item.text).join(" ");
-
     function groupTranscriptBySentences(transcript, sentencesPerGroup = 6) {
       const grouped = [];
       for (let i = 0; i < transcript.length; i += sentencesPerGroup) {
         const chunk = transcript.slice(i, i + sentencesPerGroup);
-        const timestamp = chunk[0].offset;
-        const text = chunk.map((entry) => entry.text).join(" ");
+        const timestamp = chunk[0].start; // 'start' instead of 'offset'
+        const text = chunk.map((entry) => entry.subtitle).join(" "); // 'subtitle' instead of 'text'
         grouped.push({ timestamp, text });
       }
       return grouped;
@@ -132,27 +128,28 @@ const youtubeSummary = async (req, res, next) => {
 
     const options = {
       method: "GET",
-      url: "https://youtube-transcript3.p.rapidapi.com/api/transcript",
+      url: "https://youtube-transcriptor.p.rapidapi.com/transcript",
       params: {
-        videoId: cleanVideoId,
+        video_id: cleanVideoId,
+        lang: "en",
       },
       headers: {
         "x-rapidapi-key": process.env.RAPID_API_KEY_SARITA,
-        "x-rapidapi-host": "youtube-transcript3.p.rapidapi.com",
+        "x-rapidapi-host": "youtube-transcriptor.p.rapidapi.com",
       },
     };
 
     // transcript generation using YoutubeTranscript npm package
     const response = await axios.request(options);
 
-    const transcript = response.data.transcript;
+    const transcript = response.data[0].transcription;
 
     function groupTranscriptBySentences(transcript, sentencesPerGroup = 6) {
       const grouped = [];
       for (let i = 0; i < transcript.length; i += sentencesPerGroup) {
         const chunk = transcript.slice(i, i + sentencesPerGroup);
-        const timestamp = chunk[0].offset;
-        const text = chunk.map((entry) => entry.text).join(" ");
+        const timestamp = chunk[0].start; // 'start' instead of 'offset'
+        const text = chunk.map((entry) => entry.subtitle).join(" "); // 'subtitle' instead of 'text'
         grouped.push({ timestamp, text });
       }
       return grouped;
@@ -160,7 +157,7 @@ const youtubeSummary = async (req, res, next) => {
 
     const result = groupTranscriptBySentences(transcript, 6);
 
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY1);
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     // Step 3: Chunk transcript (every 4 items for now)
