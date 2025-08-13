@@ -45,7 +45,8 @@ app.use(
 );
 
 app.options("*", cors());
-app.use(fileUpload());
+// app.use(fileUpload());
+app.use(fileUpload({ limits: { fileSize: 50 * 1024 * 1024 } })); // 50MB
 app.use(express.json({ limit: "8mb" }));
 app.use(cookieParser());
 
