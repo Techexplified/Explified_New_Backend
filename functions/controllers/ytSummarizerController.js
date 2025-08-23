@@ -157,7 +157,7 @@ const youtubeSummary = async (req, res, next) => {
 
     const result = groupTranscriptBySentences(transcript, 6);
 
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY1);
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     // Step 3: Chunk transcript (every 4 items for now)
