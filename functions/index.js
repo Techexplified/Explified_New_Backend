@@ -30,7 +30,7 @@ const youtubeRouter = require("./routes/youtubeRoutes");
 const aiGifGeneratorRouter = require("./routes/gifGeneratorRoute");
 const aiMemeGeneratorRouter = require("./routes/memeGeneratorRoute");
 
-const fileUpload = require("./controllers/client-sheet-store/uploadExcel");
+const uploadFile = require("./controllers/client-sheet-store/uploadExcel");
 const app = express();
 
 app.use(
@@ -57,7 +57,7 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use("/uploads", express.static("uploads"));
 
 // Routes
-app.use("/api", fileUpload);
+app.use("/api", uploadFile);
 app.use("/api/users", userRouter);
 app.use("/api/textToVideos", textToVideoRouter);
 app.use("/api/textToImage", textToImageRouter);
