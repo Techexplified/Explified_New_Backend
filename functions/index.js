@@ -3,7 +3,6 @@ const express = require("express");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
 const cookieParser = require("cookie-parser");
-const fileUploadMiddleware = require("express-fileupload");
 const { onRequest } = require("firebase-functions/v2/https"); // changes done here
 const userRouter = require("./routes/userRoute");
 const textToVideoRouter = require("./routes/textToVideoRoutes");
