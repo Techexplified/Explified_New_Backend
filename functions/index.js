@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
 const cookieParser = require("cookie-parser");
+const fileUploadMiddleware = require("express-fileupload");
 const { onRequest } = require("firebase-functions/v2/https"); // changes done here
 const userRouter = require("./routes/userRoute");
 const textToVideoRouter = require("./routes/textToVideoRoutes");
@@ -30,6 +31,7 @@ const youtubeRouter = require("./routes/youtubeRoutes");
 const aiGifGeneratorRouter = require("./routes/gifGeneratorRoute");
 const aiMemeGeneratorRouter = require("./routes/memeGeneratorRoute");
 
+const fileUpload = require("./controllers/client-sheet-store/uploadExcel");
 const app = express();
 
 app.use(
@@ -56,6 +58,7 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use("/uploads", express.static("uploads"));
 
 // Routes
+app.use("/api", fileUpload);
 app.use("/api/users", userRouter);
 app.use("/api/textToVideos", textToVideoRouter);
 app.use("/api/textToImage", textToImageRouter);
