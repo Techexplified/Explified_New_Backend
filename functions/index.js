@@ -31,6 +31,8 @@ const aiGifGeneratorRouter = require("./routes/gifGeneratorRoute");
 const aiMemeGeneratorRouter = require("./routes/memeGeneratorRoute");
 
 const uploadFile = require("./controllers/client-sheet-store/uploadExcel");
+const salesRouter = require("./controllers/SalesBotController");
+
 const app = express();
 
 app.use(
@@ -58,6 +60,7 @@ app.use("/uploads", express.static("uploads"));
 
 // Routes
 app.use("/api", uploadFile);
+app.use("/api/sales", salesRouter);
 app.use("/api/users", userRouter);
 app.use("/api/textToVideos", textToVideoRouter);
 app.use("/api/textToImage", textToImageRouter);
