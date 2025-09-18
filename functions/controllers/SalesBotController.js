@@ -3,7 +3,7 @@ const { db } = require("../config/db");
 
 const salesRouter = express.Router();
 
-salesRouter.post("/contact/details", async (req, res) => {
+salesRouter.post("/bot/contact/details", async (req, res) => {
   try {
     const dataArray = req.body;
 

@@ -31,6 +31,7 @@ const youtubeRouter = require("./functions/routes/youtubeRoutes");
 const aiGifGeneratorRouter = require("./functions/routes/gifGeneratorRoute");
 const aiMemeGeneratorRouter = require("./functions/routes/memeGeneratorRoute");
 const imageToVideoRouter = require("./functions/routes/imageToVideoRoute");
+const salesRouter = require("./functions/controllers/SalesBotController");
 
 const port = process.env.PORT1 || 3000;
 const app = express();
@@ -74,6 +75,7 @@ app.use("/api/whatsapp", whatsappRoutes);
 app.use("/api/youtube", youtubeRouter);
 
 //ROUTES
+app.use("/api/sales", salesRouter);
 app.use("/api/users", userRouter);
 app.use("/api/textToVideos", textToVideoRouter);
 app.use("/api/textToImage", textToImageRouter);
