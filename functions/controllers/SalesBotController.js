@@ -71,7 +71,7 @@ salesRouter.get("/get/contact/details", async (req, res) => {
     return res.status(200).json({ data: leads });
   } catch (error) {
     console.error("❌ Error fetching leads:", error);
-    return res.status(500).json({ error: "Internal server error." });
+    return res.status(500).json({ message: "Internal server error.", error });
   }
 });
 
