@@ -7,7 +7,7 @@ let serviceAccount = require("../confidential/leaveit.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://explified-app.firebaseio.com",
+  // databaseURL: "https://explified-app.firebaseio.com",
 });
 
 const db = admin.firestore();

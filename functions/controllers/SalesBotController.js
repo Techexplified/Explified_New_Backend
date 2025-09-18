@@ -75,4 +75,18 @@ salesRouter.get("/get/contact/details", async (req, res) => {
   }
 });
 
+salesRouter.get("/test/firestore", async (req, res) => {
+  try {
+    const testDoc = await db.collection("test_collection").add({
+      timestamp: new Date(),
+    });
+    res
+      .status(200)
+      .json({ message: "✅ Firestore write success", id: testDoc.id });
+  } catch (err) {
+    console.error("❌ Firestore test error:", err);
+    res.status(500).json({ error: "❌ Firestore test failed." });
+  }
+});
+
 module.exports = salesRouter;
