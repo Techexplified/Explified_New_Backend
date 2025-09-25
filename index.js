@@ -33,6 +33,8 @@ const aiMemeGeneratorRouter = require("./functions/routes/memeGeneratorRoute");
 const imageToVideoRouter = require("./functions/routes/imageToVideoRoute");
 const salesRouter = require("./functions/controllers/SalesBotController");
 
+const uploadFile = require("./functions/controllers/client-sheet-store/uploadExcel");
+
 const port = process.env.PORT1 || 3000;
 const app = express();
 
@@ -86,6 +88,8 @@ app.use("/api/aiSubtitler", aiSubtitlerRouter);
 app.use("/api/aiGifGenerator", aiGifGeneratorRouter);
 app.use("/api/aiMemeGenerator", aiMemeGeneratorRouter);
 app.use("/api/imageToVideo", imageToVideoRouter);
+
+app.use("/api", uploadFile);
 
 app.use("/uploads/:filename", (req, res) => {
   const file = path.join(
