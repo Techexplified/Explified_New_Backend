@@ -1,13 +1,37 @@
 const express = require("express");
 const { mybucket: bucket } = require("../../config/db");
 const fileUpload = express.Router();
+// ...existing code...
+
+fileUpload.get("/uploads", async (req, res) => {
+  try {
+    const [files] = await bucket.getFiles({ prefix: "excel_uploads/" });
+    const fileList = await Promise.all(
+      files.map(async (file) => {
+        const [url] = await file.getSignedUrl({
+          action: "read",
+          expires: "03-01-2030",
+        });
+        return {
+          name: file.name.replace("excel_uploads/", ""),
+          url,
+        };
+      })
+    );
+    res.status(200).json({ files: fileList });
+  } catch (err) {
+    console.error("Error fetching files:", err);
+    res.status(500).json({ error: "Error fetching uploaded files" });
+  }
+});
+
+// ...existing code...
 
 fileUpload.post("/upload", async (req, res) => {
-  if (!req.files || !req.files.file) {
+  const uploadedFile = req.files?.file || req.files?.File;
+  if (!req.files || !uploadedFile) {
     return res.status(400).json({ error: "No file uploaded" });
   }
-
-  const uploadedFile = req.files.file;
   const allowedTypes = [
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     "text/csv",
@@ -46,3 +70,4 @@ fileUpload.post("/upload", async (req, res) => {
 });
 
 module.exports = fileUpload;
+  
