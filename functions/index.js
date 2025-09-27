@@ -35,6 +35,10 @@ const salesRouter = require("./controllers/SalesBotController");
 
 const app = express();
 
+// Upload route FIRST - before any middleware that could interfere
+const uploadFile = require("./controllers/client-sheet-store/uploadExcel");
+app.use("/api-upload", uploadFile); // Changed to api-upload to avoid conflicts
+
 app.use(
   cors({
     origin: [
@@ -58,8 +62,7 @@ app.use(express.static("compressed"));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use("/uploads", express.static("uploads"));
 
-// Routes
-app.use("/api", uploadFile);
+// Routes (removed upload route since it's handled separately above)
 app.use("/api/sales", salesRouter);
 app.use("/api/users", userRouter);
 app.use("/api/textToVideos", textToVideoRouter);

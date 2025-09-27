@@ -50,6 +50,10 @@ app.use(
   })
 );
 app.options("*", cors());
+
+// Upload routes - MUST be before fileUpload() middleware
+app.use("/api-upload", uploadFile);
+
 app.use(fileUpload());
 app.use(express.json({ limit: "4mb" }));
 // app.use(express.json());
