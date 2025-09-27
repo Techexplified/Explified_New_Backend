@@ -36,7 +36,7 @@ const salesRouter = require("./controllers/SalesBotController");
 const app = express();
 
 // Upload route FIRST - before any middleware that could interfere
-const uploadFile = require("./controllers/client-sheet-store/uploadExcel");
+
 app.use("/api-upload", uploadFile); // Changed to api-upload to avoid conflicts
 
 app.use(
