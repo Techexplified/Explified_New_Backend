@@ -32,6 +32,7 @@ const aiMemeGeneratorRouter = require("./routes/memeGeneratorRoute");
 
 const uploadFile = require("./controllers/client-sheet-store/uploadExcel");
 const salesRouter = require("./controllers/SalesBotController");
+const trainingRouter = require("./controllers/TrainingmoduleController");
 
 const app = express();
 
@@ -63,6 +64,7 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use("/uploads", express.static("uploads"));
 
 // Routes (removed upload route since it's handled separately above)
+app.use("/api/trainingmodule", trainingRouter);
 app.use("/api/sales", salesRouter);
 app.use("/api/users", userRouter);
 app.use("/api/textToVideos", textToVideoRouter);
