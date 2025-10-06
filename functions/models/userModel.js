@@ -5,6 +5,7 @@ class User {
     this.email = email;
     this.password = hashedPassword; // hashed password
     this.createdAt = new Date();
+    this.history = [];
   }
 }
 
