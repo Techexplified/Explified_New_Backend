@@ -36,7 +36,7 @@ const salesRouter = require("./functions/controllers/SalesBotController");
 const uploadFile = require("./functions/controllers/client-sheet-store/uploadExcel");
 const trainingRouter = require("./functions/controllers/TrainingmoduleController");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT1 || 3000;
 const app = express();
 
 app.use(
