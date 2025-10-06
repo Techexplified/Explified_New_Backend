@@ -34,6 +34,7 @@ const imageToVideoRouter = require("./functions/routes/imageToVideoRoute");
 const salesRouter = require("./functions/controllers/SalesBotController");
 
 const uploadFile = require("./functions/controllers/client-sheet-store/uploadExcel");
+const trainingRouter = require("./functions/controllers/TrainingmoduleController");
 
 const port = process.env.PORT1 || 3000;
 const app = express();
@@ -81,6 +82,7 @@ app.use("/api/whatsapp", whatsappRoutes);
 app.use("/api/youtube", youtubeRouter);
 
 //ROUTES
+app.use("/api/trainingmodule", trainingRouter);
 app.use("/api/sales", salesRouter);
 app.use("/api/users", userRouter);
 app.use("/api/textToVideos", textToVideoRouter);
