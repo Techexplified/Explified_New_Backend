@@ -158,7 +158,7 @@ const youtubeSummary = async (req, res, next) => {
     const result = groupTranscriptBySentences(transcript, 6);
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     // Step 3: Chunk transcript (every 4 items for now)
     const chunkSize = 40;
@@ -201,7 +201,7 @@ const answerTranscript = async (req, res, next) => {
   try {
     const { transcriptText, question } = req.body;
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
     const prompt = `Generate answer in english based on the video transcript. Transcript: ${transcriptText}\n\nQuestion: ${question}`;
     const result = await model.generateContent(prompt);
     const answer = result.response.text();
@@ -299,15 +299,7 @@ const deepSearch = async (req, res) => {
     const paragraph = transcript.map((t) => t.text).join(" ");
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-
-    // const prompt1 = `Generate a overview of this text - ${paragraph}. Don't include the star symbols in the text. Just plain text.`;
-    // const result1 = await model.generateContent(prompt1);
-    // const summary = result1.response.text();
-
-    // const prompt2 = `${paragraph} Give 3-5 insights on this topic with links of websites from which you took reference. If possible generate the insights in array format rather that in text format. In that array of objects keep 3 keys like insight, details and reference. The reference field should contain the link of websites related to that topic.The insight field should be of 3 lines and the details field should be of 10 lines.`;
-    // const result2 = await model.generateContent(prompt2);
-    // const insights = result2.response.text();
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     const prompt1 = `Generate an overview of this text - ${paragraph}. Don't include the star symbols in the text. Just plain text.`;
     const prompt2 = `${paragraph} Give 3-5 insights on this topic with links of websites from which you took reference. If possible generate the insights in array format rather than in text format. In that array of objects keep 3 keys like insight, details and reference. The reference field should contain the link of websites related to that topic. The insight field should be of 3 lines and the details field should be of 10 lines.`;

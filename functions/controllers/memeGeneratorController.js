@@ -3,8 +3,6 @@ const axios = require("axios");
 const generateMemeId = async (req, res, next) => {
   const { topic, template } = req.body;
 
-  console.log(topic);
-
   try {
     const response = await axios.post(
       "https://api.magichour.ai/v1/ai-meme-generator",
