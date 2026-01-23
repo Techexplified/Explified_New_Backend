@@ -44,6 +44,7 @@ app.use(
   cors({
     origin: [
       "https://www.youtube.com",
+      "chrome-extension://nogdjeiacjdpcchkadlpffcbojffmdka",
       "https://explified-home.web.app",
       "https://app.explified.com",
     ],

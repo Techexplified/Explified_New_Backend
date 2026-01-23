@@ -42,13 +42,15 @@ const app = express();
 app.use(
   cors({
     origin: [
+      "https://www.youtube.com",
+      "chrome-extension://nogdjeiacjdpcchkadlpffcbojffmdka",
       "https://explified-home.web.app",
       "https://app.explified.com",
       "http://localhost:5173",
     ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"], // Allow PATCH method
     credentials: true,
-  })
+  }),
 );
 app.options("*", cors());
 
@@ -102,7 +104,7 @@ app.use("/uploads/:filename", (req, res) => {
     __dirname,
     "functions",
     "uploads",
-    req.params.filename
+    req.params.filename,
   );
   res.download(file);
 });
