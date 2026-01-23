@@ -72,15 +72,24 @@ const youtubeTranscript = async (req, res, next) => {
       .trim()
       .replace(/[^a-zA-Z0-9_-]/g, "");
 
+    if (!videoId) {
+      return res.status(400).json({
+        message: "Video ID is required",
+      });
+    }
+
+    console.log("videoId", videoId);
+    console.log("cleanVideoId", cleanVideoId);
+
     const options = {
       method: "GET",
       url: "https://youtube-transcriptor.p.rapidapi.com/transcript",
       params: {
         video_id: cleanVideoId,
-        lang: "en",
+        // lang: "en",
       },
       headers: {
-        "x-rapidapi-key": process.env.RAPID_API_KEY_SARITA,
+        "x-rapidapi-key": process.env.RAPID_API_KEY_SAILAJA,
         "x-rapidapi-host": "youtube-transcriptor.p.rapidapi.com",
       },
     };
@@ -88,9 +97,30 @@ const youtubeTranscript = async (req, res, next) => {
     // transcript generation using YoutubeTranscript npm package
     const response = await axios.request(options);
 
-    const transcript = response.data[0].transcription;
+    console.log("response1", response?.data);
+    console.log("response2", response?.data?.error);
+    console.log("response3", response.data[0].transcription);
 
-    function groupTranscriptBySentences(transcript, sentencesPerGroup = 6) {
+    const data = response.data;
+
+    // ✅ HANDLE API ERROR RESPONSE
+    if (data?.error) {
+      return res.status(400).json({
+        message: "Transcript not available in English for this video.",
+        availableLanguages: data.availableLangs || [],
+      });
+    }
+
+    // ✅ VALIDATE SUCCESS RESPONSE
+    if (!Array.isArray(data) || !data[0]?.transcription) {
+      return res.status(500).json({
+        message: "Unexpected transcript format from YouTube API",
+      });
+    }
+
+    const transcript = data[0].transcription;
+
+    function groupTranscriptBySentences(transcript, sentencesPerGroup = 12) {
       const grouped = [];
       for (let i = 0; i < transcript.length; i += sentencesPerGroup) {
         const chunk = transcript.slice(i, i + sentencesPerGroup);
@@ -101,20 +131,23 @@ const youtubeTranscript = async (req, res, next) => {
       return grouped;
     }
 
-    const result = groupTranscriptBySentences(transcript, 6);
+    const result = groupTranscriptBySentences(transcript, 12);
 
     // console.log(result);
 
     res.status(201).json({
-      message: "Summary generated successfully",
+      message: "Transcript generated successfully",
       content: result,
     });
   } catch (error) {
     console.error(
       "Error:",
-      error.response ? error.response.data : error.message
+      error.response ? error.response.data : error.message,
     );
-    throw error;
+    res.status(500).json({
+      message: "Transcript generation failed",
+      error: error.response?.data || error.message,
+    });
   }
 };
 
@@ -131,10 +164,10 @@ const youtubeSummary = async (req, res, next) => {
       url: "https://youtube-transcriptor.p.rapidapi.com/transcript",
       params: {
         video_id: cleanVideoId,
-        lang: "en",
+        // lang: "en",
       },
       headers: {
-        "x-rapidapi-key": process.env.RAPID_API_KEY_SARITA,
+        "x-rapidapi-key": process.env.RAPID_API_KEY_SAILAJA,
         "x-rapidapi-host": "youtube-transcriptor.p.rapidapi.com",
       },
     };
@@ -144,7 +177,7 @@ const youtubeSummary = async (req, res, next) => {
 
     const transcript = response.data[0].transcription;
 
-    function groupTranscriptBySentences(transcript, sentencesPerGroup = 6) {
+    function groupTranscriptBySentences(transcript, sentencesPerGroup = 12) {
       const grouped = [];
       for (let i = 0; i < transcript.length; i += sentencesPerGroup) {
         const chunk = transcript.slice(i, i + sentencesPerGroup);
@@ -155,7 +188,7 @@ const youtubeSummary = async (req, res, next) => {
       return grouped;
     }
 
-    const result = groupTranscriptBySentences(transcript, 6);
+    const result = groupTranscriptBySentences(transcript, 12);
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
@@ -191,9 +224,12 @@ Return a short and clear summary.
   } catch (error) {
     console.error(
       "Error:",
-      error.response ? error.response.data : error.message
+      error.response ? error.response.data : error.message,
     );
-    throw error;
+    res.status(500).json({
+      message: "Summary generation failed",
+      error: error.response?.data || error.message,
+    });
   }
 };
 
@@ -207,15 +243,18 @@ const answerTranscript = async (req, res, next) => {
     const answer = result.response.text();
 
     res.status(201).json({
-      message: "Summary generated successfully",
+      message: "Answer generated successfully",
       content: answer,
     });
   } catch (error) {
     console.error(
       "Error:",
-      error.response ? error.response.data : error.message
+      error.response ? error.response.data : error.message,
     );
-    throw error;
+    res.status(500).json({
+      message: "Answer generation failed",
+      error: error.response?.data || error.message,
+    });
   }
 };
 
@@ -249,7 +288,7 @@ const translateTranscript = async (transcript, targetLang) => {
     transcript.map(async (item) => ({
       timestamp: item.timestamp,
       text: await translateLine(item.text, "auto", targetLang),
-    }))
+    })),
   );
 
   return translated;
@@ -301,6 +340,14 @@ const deepSearch = async (req, res) => {
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
+    // const prompt1 = `Generate a overview of this text - ${paragraph}. Don't include the star symbols in the text. Just plain text.`;
+    // const result1 = await model.generateContent(prompt1);
+    // const summary = result1.response.text();
+
+    // const prompt2 = `${paragraph} Give 3-5 insights on this topic with links of websites from which you took reference. If possible generate the insights in array format rather that in text format. In that array of objects keep 3 keys like insight, details and reference. The reference field should contain the link of websites related to that topic.The insight field should be of 3 lines and the details field should be of 10 lines.`;
+    // const result2 = await model.generateContent(prompt2);
+    // const insights = result2.response.text();
+
     const prompt1 = `Generate an overview of this text - ${paragraph}. Don't include the star symbols in the text. Just plain text.`;
     const prompt2 = `${paragraph} Give 3-5 insights on this topic with links of websites from which you took reference. If possible generate the insights in array format rather than in text format. In that array of objects keep 3 keys like insight, details and reference. The reference field should contain the link of websites related to that topic. The insight field should be of 3 lines and the details field should be of 10 lines.`;
     // const prompt3 = `${paragraph} Give 3 youtube video links, 3 blog post links and 3 research paper links related to this specific topic in an array of objects format. The objects should contain only two fields, type and url. Give real, active URLs from credible sources`;
@@ -338,7 +385,7 @@ No extra text. Return only the JSON array.`;
   } catch (error) {
     console.error(
       "Error:",
-      error.response ? error.response.data : error.message
+      error.response ? error.response.data : error.message,
     );
     throw error;
   }
