@@ -43,13 +43,13 @@ app.use("/api-upload", uploadFile); // Changed to api-upload to avoid conflicts
 app.use(
   cors({
     origin: [
+      "https://www.youtube.com",
       "https://explified-home.web.app",
       "https://app.explified.com",
-      "https://www.youtube.com",
     ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
-  })
+  }),
 );
 
 app.options("*", cors());
