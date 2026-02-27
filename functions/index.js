@@ -42,8 +42,8 @@ const uploadFile = require("./controllers/client-sheet-store/uploadExcel");
 const salesRouter = require("./controllers/SalesBotController");
 const trainingRouter = require("./controllers/TrainingmoduleController");
 
-const emailAutomationRoutes = require("./functions/routes/emailAutomationRoutes");
-const aiChatRouter = require("./functions/routes/aiChatRoutes");
+const emailAutomationRoutes = require("./routes/emailAutomationRoutes");
+const aiChatRouter = require("./routes/aiChatRoutes");
 
 const app = express();
 
