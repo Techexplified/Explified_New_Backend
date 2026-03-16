@@ -44,6 +44,7 @@ const trainingRouter = require("./controllers/TrainingmoduleController");
 
 const emailAutomationRoutes = require("./routes/emailAutomationRoutes");
 const aiChatRouter = require("./routes/aiChatRoutes");
+const mongoAuthRouter = require("./routes/mongoAuthRoutes");
 
 const app = express();
 
@@ -190,6 +191,7 @@ app.use("/api/aiSubtitler", aiSubtitlerRouter);
 app.use("/api/aiGifGenerator", aiGifGeneratorRouter);
 app.use("/api/aiMemeGenerator", aiMemeGeneratorRouter);
 app.use("/api/email-automation", emailAutomationRoutes);
+app.use("/api/new/auth", mongoAuthRouter);
 
 // pdf routes
 app.use("/compress", compressRouter);
