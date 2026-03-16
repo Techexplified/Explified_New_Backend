@@ -3,9 +3,15 @@ const User = require("../models/mongoUserModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const signToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN || "7d",
+const generateAndSendToken = (res, id) => {
+  const token = jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRES_IN,
+  });
+
+  res.cookie("explifiedAuth", token, {
+    maxAge: process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+    sameSite: "lax",
   });
 };
 
@@ -29,13 +35,15 @@ const signup = async (req, res) => {
       provider: "local",
     });
 
-    const token = signToken(user._id);
+    generateAndSendToken(res, user._id);
 
     res.status(201).json({
-      success: true,
-      message: "User registered successfully",
-      token,
-      user,
+      status: "success",
+      message: "Login successful",
+      data: {
+        _id: user._id,
+        email: user.email,
+      },
     });
   } catch (error) {
     res.status(500).json({
@@ -61,7 +69,7 @@ const login = async (req, res) => {
     if (user.provider === "google" && !user.password) {
       return res.status(400).json({
         success: false,
-        message: "This account was created using Google login",
+        message: "This account was created using Google",
       });
     }
 
@@ -74,15 +82,15 @@ const login = async (req, res) => {
       });
     }
 
-    const token = signToken(user._id);
+    generateAndSendToken(res, user._id);
 
-    user.password = undefined;
-
-    res.status(200).json({
-      success: true,
+    res.status(201).json({
+      status: "success",
       message: "Login successful",
-      token,
-      user,
+      data: {
+        _id: user._id,
+        email: user.email,
+      },
     });
   } catch (error) {
     res.status(500).json({
@@ -139,12 +147,7 @@ const googleSuccess = async (req, res) => {
 
     const user = req.user;
 
-    const token = signToken(user._id);
-
-    res.cookie("explifiedAuth", token, {
-      maxAge: 90 * 24 * 60 * 60 * 1000,
-      httpOnly: true,
-    });
+    generateAndSendToken(res, user._id);
 
     res.redirect(`${process.env.FRONTEND_URL}/`);
   } catch (error) {
