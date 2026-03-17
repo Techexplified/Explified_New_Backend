@@ -45,8 +45,11 @@ const trainingRouter = require("./controllers/TrainingmoduleController");
 const emailAutomationRoutes = require("./routes/emailAutomationRoutes");
 const aiChatRouter = require("./routes/aiChatRoutes");
 const mongoAuthRouter = require("./routes/mongoAuthRoutes");
+const connectDB = require("./config/mongodb");
 
 const app = express();
+
+connectDB();
 
 // Upload route FIRST - before any middleware that could interfere
 
@@ -59,6 +62,7 @@ app.use(
       "chrome-extension://nogdjeiacjdpcchkadlpffcbojffmdka",
       "https://explified-home.web.app",
       "https://app.explified.com",
+      "https://expli.explified.com",
     ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
