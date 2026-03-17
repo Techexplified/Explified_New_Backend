@@ -182,6 +182,10 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use("/uploads", express.static("uploads"));
 app.use("/api/ai", aiChatRouter);
 
+app.get("/", (req, res) => {
+  res.json({ message: "Server is running..." });
+});
+
 // Routes (removed upload route since it's handled separately above)
 app.use("/api/trainingmodule", trainingRouter);
 app.use("/api/sales", salesRouter);
