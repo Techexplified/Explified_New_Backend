@@ -183,10 +183,6 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use("/uploads", express.static("uploads"));
 app.use("/api/ai", aiChatRouter);
 
-app.get("/hello", (req, res) => {
-  res.json({ message: "Server is running..." });
-});
-
 // Routes (removed upload route since it's handled separately above)
 app.use("/api/trainingmodule", trainingRouter);
 app.use("/api/sales", salesRouter);
@@ -215,6 +211,10 @@ app.use("/api/bg", bgRouter);
 
 app.use("/api/whatsapp", whatsappRouter);
 app.use("/api/youtube", youtubeRouter);
+
+app.get("/hello", (req, res) => {
+  res.json({ message: "Server is running..." });
+});
 
 app.get("/firebase-status", async (req, res) => {
   try {
