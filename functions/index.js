@@ -45,11 +45,12 @@ const trainingRouter = require("./controllers/TrainingmoduleController");
 const emailAutomationRoutes = require("./routes/emailAutomationRoutes");
 const aiChatRouter = require("./routes/aiChatRoutes");
 const mongoAuthRouter = require("./routes/mongoAuthRoutes");
-// const connectDB = require("./config/mongodb");
+const connectDB = require("./config/mongodb");
+require("./config/mongoPassport");
 
 const app = express();
 
-// connectDB();
+connectDB();
 
 // Upload route FIRST - before any middleware that could interfere
 
