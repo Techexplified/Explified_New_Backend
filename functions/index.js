@@ -182,7 +182,7 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use("/uploads", express.static("uploads"));
 app.use("/api/ai", aiChatRouter);
 
-app.get("/", (req, res) => {
+app.get("/hello", (req, res) => {
   res.json({ message: "Server is running..." });
 });
 
