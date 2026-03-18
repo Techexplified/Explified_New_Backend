@@ -1,5 +1,4 @@
 const axios = require("axios");
-const { YoutubeTranscript } = require("youtube-transcript");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { db } = require("../config/db");
 
