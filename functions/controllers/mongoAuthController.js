@@ -8,10 +8,10 @@ const generateAndSendToken = (res, id) => {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
 
-  res.cookie("explifiedAuth", token, {
+  res.cookie("__session", token, {
     maxAge: process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: "none",
   });
 };
 
@@ -104,8 +104,8 @@ const protect = async (req, res, next) => {
   try {
     let token;
 
-    if (req.cookies.explifiedAuth) {
-      token = req.cookies.explifiedAuth;
+    if (req.cookies.__session) {
+      token = req.cookies.__session;
     }
 
     if (!token) {
@@ -156,7 +156,7 @@ const googleSuccess = async (req, res) => {
 };
 
 const logoutUser = (req, res) => {
-  res.cookie("explifiedAuth", "", { maxAge: 0 });
+  res.cookie("__session", "", { maxAge: 0 });
   res.status(200).json({
     status: "success",
     message: "Logged out successfully",

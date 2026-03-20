@@ -48,9 +48,9 @@ const mongoAuthRouter = require("./routes/mongoAuthRoutes");
 const connectDB = require("./config/mongodb");
 require("./config/mongoPassport");
 
-const app = express();
-
 connectDB();
+
+const app = express();
 
 // Upload route FIRST - before any middleware that could interfere
 
