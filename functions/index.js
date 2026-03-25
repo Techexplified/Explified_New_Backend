@@ -62,6 +62,7 @@ app.use(
       "https://www.youtube.com",
       "chrome-extension://nogdjeiacjdpcchkadlpffcbojffmdka",
       "https://explified-home.web.app",
+      "https://auth-explified.web.app",
       "https://app.explified.com",
       "https://expli.explified.com",
     ],
