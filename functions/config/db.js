@@ -1,6 +1,3 @@
-// for production as well as development
-
-// const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 
 let serviceAccount = require("../confidential/leaveit.json");
